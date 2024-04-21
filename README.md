@@ -1,6 +1,6 @@
 # Silverstripe Fundamental - a foundation for modular pages
 
-Provides essential, foundational elements for building modular pages using Silverstripe CMS 5 and the Elemental module.
+Provides essential, foundational elements for building modular pages using Silverstripe CMS 5 and the [Elemental](https://github.com/silverstripe/silverstripe-elemental) module.
 
 
 ## Requirements
