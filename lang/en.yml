@@ -1,0 +1,5 @@
+en:
+  minimalic\Fundamental\Pages\ModularPage:
+    SINGULARNAME: 'Modular Page'
+    PLURALNAME: 'Modular Pages'
+    DESCRIPTION: 'Page with modular elements'
