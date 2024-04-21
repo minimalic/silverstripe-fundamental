@@ -1,0 +1,28 @@
+{
+    "name": "minimalic/silverstripe-fundamental",
+    "description": "Provides essential, foundational elements for building modular pages using Silverstripe CMS 5 and the Elemental module.",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "elemental",
+        "foundation",
+        "modular"
+    ],
+    "authors": [
+        {
+            "name": "Sebastian Finke", "email": "dev@minimalic.com"
+        }
+    ],
+    "require": {
+        "silverstripe/cms": "^4 || ^5",
+        "dnadesign/silverstripe-elemental": "^4 || ^5"
+    },
+    "autoload": {
+        "psr-4": {
+            "minimalic\\Fundamental\\": "src/"
+        }
+    },
+    "license": "BSD-3-Clause",
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
