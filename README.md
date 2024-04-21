@@ -5,8 +5,8 @@ Provides essential, foundational elements for building modular pages using Silve
 
 ## Requirements
 
-* Silverstripe elemental
-* Compatible with Silverstripe versions 4 and 5
+* Silverstripe CMS version 4 or 5
+* Silverstripe Elemental
 
 
 ## Installation
@@ -25,7 +25,7 @@ Or use your base URL with:
 
 ## Customization
 
-### custom theme for ModularPage
+### Custom theme for ModularPage
 
 Create your own `ModularPage.ss` inside your theme's `template` directory inside:
 ```sh
@@ -33,7 +33,7 @@ minimalic/Fundamental/Pages/Layout/
 ```
 
 
-### remapping local Elemental extensions (optional)
+### Remap local Elemental extensions (optional)
 
 This step is only necessary if you already using an `ElementalPageExtension` and want to replace it with page type coming with this module.
 
