@@ -13,7 +13,7 @@ Provides essential, foundational elements for building modular pages using Silve
 
 Install using Composer:
 ```sh
-composer require minimalic/silverstripe-foundation
+composer require minimalic/silverstripe-fundamental
 ```
 
 Refresh your database by navigating to your website's root directory in the shell and running:
