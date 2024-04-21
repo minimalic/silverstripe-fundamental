@@ -2,9 +2,6 @@
 
 namespace minimalic\Fundamental\Pages;
 
-use DNADesign\Elemental\Extensions\ElementalPageExtension;
-use DNADesign\Elemental\Models\ElementalArea;
-
 use Page;
 
 class ModularPage extends Page
@@ -20,36 +17,4 @@ class ModularPage extends Page
     private static $field_include = [
         'ElementalAreaID',
     ];
-
-    // private static $extensions = [
-    //     ElementalPageExtension::class,
-    // ];
-
-    private static $db = [
-    ];
-
-    private static $has_one = [
-    ];
-
-    private static $owns = [
-    ];
-
-    public function getCMSFields()
-    {
-        $fields = parent::getCMSFields();
-
-        $fields->addFieldsToTab('Root.Main', [
-
-        ]);
-
-        return $fields;
-    }
-
-    public function onBeforeWrite()
-    {
-        parent::onBeforeWrite();
-
-        return;
-    }
-
 }
