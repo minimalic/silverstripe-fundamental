@@ -1,5 +1,29 @@
 en:
+  minimalic\Fundamental\Modules\ModuleImage:
+    AllowUpscale: 'Allow Image Upscale'
+    AllowUpscaleDescription: 'Upscale will only apply on the website, not on the image file itself.'
+    Dimensions: 'Dimensions'
+    DimensionsDescription: 'Enter the dimensions in pixels. Set 0 for the image’s default size.<br>Image will be scaled and cropped to fit the new resolution. If only one value is set, the image will maintain its original aspect ratio.<br>Upscaling is disabled.'
+    FullWidth: 'Display at Full Page Width'
+    Height: 'Height'
+    PLURALNAME: 'Image Blocks'
+    PLURALS:
+      one: 'An Image Block'
+      other: '{count} Image Blocks'
+    SINGULARNAME: 'Image Block'
+    Summary: 'Displays an image as a banner.'
+    Type: 'Image'
+    Width: 'Width'
+    db_AllowUpscale: 'Allow Image Upscale'
+    db_FullWidth: 'Full Page Width'
+    db_Height: 'Height'
+    db_Width: 'Width'
+    has_one_Image: 'Image'
   minimalic\Fundamental\Pages\ModularPage:
-    SINGULARNAME: 'Modular Page'
+    DESCRIPTION: 'A page with modular elements.'
     PLURALNAME: 'Modular Pages'
-    DESCRIPTION: 'Page with modular elements'
+    PLURALS:
+      one: 'A Modular Page'
+      other: '{count} Modular Pages'
+    SINGULARNAME: 'Modular Page'
+    has_one_ElementalArea: 'Elemental Area'
