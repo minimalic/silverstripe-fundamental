@@ -12,6 +12,7 @@ Provides essential, foundational elements for building modular pages using Silve
 ## Installation
 
 Install using Composer:
+
 ```sh
 composer require minimalic/silverstripe-fundamental
 ```
@@ -19,34 +20,46 @@ composer require minimalic/silverstripe-fundamental
 Refresh your database by navigating to your website's root directory in the shell and running:
 `vendor/bin/sake dev/build "flush=all"`
 
-Or use your base URL with:
+Or, use your base URL with:
 `/dev/build?flush=all`
 
 
 ## Customization
 
-### Custom theme for ModularPage
+### Custom Theme for ModularPage
 
-Create your own `ModularPage.ss` inside your theme's `template` directory inside:
-```sh
+Create your own `ModularPage.ss` template inside your theme's `template` directory at:
+```
 minimalic/Fundamental/Pages/Layout/
 ```
 
 
-### Remap local Elemental extensions (optional)
+### Custom Themes for Modules
 
-This step is only necessary if you already using an `ElementalPageExtension` and want to replace it with page type coming with this module.
+To override default templates for modules/blocks, create your own template file (e.g., `ModuleImage.ss`) inside your theme's `template` directory at:
 
-To remap existing `App\Pages\ModularPage` or `ElementalPage` (a class name of your custom Elemental page extension, if any) use this inside your `mysite.yml`:
+```
+minimalic/Fundamental/Modules/
+```
+
+Alternatively copy the entire `vendor/minimalic/silverstripe-fundamental/templates/` directory to your `templates/` directory and customize all template overrides.
+
+
+### Remap Local Elemental Extensions (Optional)
+
+This step is necessary if you are already using an ElementalPageExtension and want to replace it with the page type provided by this module.
+
+To remap existing `App\Pages\ModularPage` or `ElementalPage` (the class name of your custom Elemental page extension, if any), use the following configuration in your `mysite.yml`:
+
 ```yaml
 SilverStripe\ORM\DatabaseAdmin:
   classname_value_remapping:
     'App\Pages\ModularPage': 'minimalic\Fundamental\Pages\ModularPage'
 ```
 
-Replace `App\Pages\ModularPage` with your class name. Also make sure your existing `table_name` is `ModularPage` - if it's not a case your should rename your table.
+Replace `App\Pages\ModularPage` with your class name. Also, ensure your existing `table_name` is `ModularPage`; if not, you should rename your table.
 
-After rebuild you can delete these remap lines from yout `mysite.yml`. Your existing Elemental pages should now use this module.
+After rebuilding your database, you can delete these remap lines from your mysite.yml. Your existing Elemental pages should now use this module.
 
 
 ## License
