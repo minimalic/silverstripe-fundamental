@@ -10,7 +10,7 @@
     <% else %>
     <div class="container">
     <% end_if %>
-        <div class="row<% if $FullWidth %> p-0<% end_if %>">
+        <div class="row<% if $FullWidth %> g-0<% end_if %>">
             <div class="col">
                 <img src="{$ResizedImage.Link}" class="img-fluid<% if $AllowUpscale %> w-100<% end_if %>" alt="$Image.Title.XML">
             </div>
