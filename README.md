@@ -36,6 +36,8 @@ minimalic/Fundamental/Pages/Layout/
 
 ### Custom Themes for Modules
 
+By default the Fundamental extension uses Bootstrap 5 classes for templating.
+
 To override default templates for modules/blocks, create your own template file (e.g., `ModuleImage.ss`) inside your theme's `template` directory at:
 
 ```
