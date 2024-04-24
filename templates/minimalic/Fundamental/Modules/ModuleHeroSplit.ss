@@ -1,4 +1,4 @@
-<div class="my-5">
+<div class="mb-5">
     <% if $Title && $ShowTitle %>
     <div class="container">
         <h2 class="">$Title</h2>
