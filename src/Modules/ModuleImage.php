@@ -78,6 +78,26 @@ class ModuleImage extends BaseElement
         return $fields;
     }
 
+    // returns resized instance of the image
+    public function getResizedImage()
+    {
+        $imageSource = $this->Image();
+        $width = $this->Width;
+        $height = $this->Height;
+
+        if ($width > 0 && $height > 0) {
+            $imageOutput = $imageSource->FillMax($width, $height);
+        } elseif ($width > 0) {
+            $imageOutput = $imageSource->ScaleMaxWidth($width);
+        } elseif ($height > 0) {
+            $imageOutput = $imageSource->ScaleMaxWidth($height);
+        } else {
+            $imageOutput = $imageSource->FitMax(3840, 3840);
+        }
+
+        return $imageOutput;
+    }
+
     public function getSummary(): string
     {
         return _t(__CLASS__ . '.Summary', 'Displays an image as a banner.');

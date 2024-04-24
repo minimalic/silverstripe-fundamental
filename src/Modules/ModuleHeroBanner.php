@@ -2,7 +2,6 @@
 
 namespace minimalic\Fundamental\Modules;
 
-use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 
 use DNADesign\Elemental\Models\BaseElement;
