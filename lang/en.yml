@@ -1,24 +1,55 @@
 en:
+  minimalic\Fundamental\Modules\ModuleHeroBanner:
+    DisplayHeight: 'Banner Display Height'
+    Height100vh: '100% of Viewport Height'
+    Height360px: '360 Pixels'
+    Height500px: '500 Pixels'
+    Height50vh: '50% of Viewport Height'
+    Height640px: '640 Pixels'
+    Height75vh: '75% of Viewport Height'
+    Height800px: '800 Pixels'
+    HeightContent: 'Stretched to Content'
+    HeightDefault: 'Default (use site-wide settings)'
+    PLURALNAME: 'Hero Banner Blocks'
+    PLURALS:
+      one: 'A Hero Banner Block'
+      other: '{count} Hero Banner Blocks'
+    SINGULARNAME: 'Hero Banner Block'
+    Summary: 'Displays a hero banner with text overlayed on an image.'
+    Type: 'Hero Banner'
+    db_Content: Content
+    db_DisplayHeight: 'Display height'
+  minimalic\Fundamental\Modules\ModuleHeroSplit:
+    PLURALNAME: 'Hero Split Blocks'
+    PLURALS:
+      one: 'A Hero Split Block'
+      other: '{count} Hero Split Blocks'
+    SINGULARNAME: 'Hero Split Block'
+    Summary: 'Displays text and image as side-by-side elements.'
+    SwitchOrder: 'Switch Text and Image order'
+    Type: 'Hero Split'
+    db_Content: Content
+    db_SwitchOrder: 'Switch order'
   minimalic\Fundamental\Modules\ModuleImage:
     AllowUpscale: 'Allow Image Upscale'
     AllowUpscaleDescription: 'Upscale will only apply on the website, not on the image file itself.'
-    Dimensions: 'Dimensions'
+    Dimensions: Dimensions
     DimensionsDescription: 'Enter the dimensions in pixels. Set 0 for the image’s default size.<br>Image will be scaled and cropped to fit the new resolution. If only one value is set, the image will maintain its original aspect ratio.<br>Upscaling is disabled.'
     FullWidth: 'Display at Full Page Width'
-    Height: 'Height'
+    Height: Height
     PLURALNAME: 'Image Blocks'
     PLURALS:
       one: 'An Image Block'
       other: '{count} Image Blocks'
     SINGULARNAME: 'Image Block'
     Summary: 'Displays an image as a banner.'
-    Type: 'Image'
-    Width: 'Width'
+    Type: Image
+    Width: Width
     db_AllowUpscale: 'Allow Image Upscale'
     db_FullWidth: 'Full Page Width'
-    db_Height: 'Height'
-    db_Width: 'Width'
-    has_one_Image: 'Image'
+    db_Height: Height
+    db_Width: Width
+    has_one_Image: Image
   minimalic\Fundamental\Pages\ModularPage:
     DESCRIPTION: 'A page with modular elements.'
     PLURALNAME: 'Modular Pages'

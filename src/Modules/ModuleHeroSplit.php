@@ -11,11 +11,8 @@ class ModuleHeroSplit extends ModuleImage
     private static $icon = 'font-icon-block-promo-3';
 
     private static $singular_name = 'Hero Split Block';
-
     private static $plural_name = 'Hero Split Blocks';
-
-    private static $description = 'Hero Split with Image and Text side-by-side';
-
+    private static $description = 'Displays a hero split with image and text side-by-side. Allows switching the order.';
     private static $table_name = 'ModuleHeroSplit';
 
     private static $db = [
@@ -39,7 +36,10 @@ class ModuleHeroSplit extends ModuleImage
     {
         $fields = parent::getCMSFields();
 
-        $fieldSwitchOrder = CheckboxField::create('SwitchOrder', _t(__CLASS__ . '.SwitchOrder', 'Switch Text and Image order'));
+        $fieldSwitchOrder = CheckboxField::create(
+            'SwitchOrder',
+            _t(__CLASS__ . '.SwitchOrder', 'Switch Text and Image order')
+        );
 
         $fields->addFieldsToTab('Root.Settings', [
             $fieldSwitchOrder,
@@ -50,16 +50,12 @@ class ModuleHeroSplit extends ModuleImage
 
     public function getSummary(): string
     {
-        return _t(__CLASS__ . '.Summary', 'Displays text and image as side-by-side block.');
+        return _t(__CLASS__ . '.Summary', 'Displays text and image as side-by-side elements.');
     }
 
     public function getType()
     {
         return _t(__CLASS__ . '.Type', 'Hero Split');
-    }
-
-    public function onBeforeWrite() {
-        parent::onBeforeWrite();
     }
 
 }

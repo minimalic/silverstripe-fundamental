@@ -1,29 +1,60 @@
 de:
+  minimalic\Fundamental\Modules\ModuleHeroBanner:
+    DisplayHeight: 'Banner-Anzeigehöhe'
+    Height100vh: '100% der Viewport-Höhe'
+    Height360px: '360 Pixel'
+    Height500px: '500 Pixel'
+    Height50vh: '50% der Viewport-Höhe'
+    Height640px: '640 Pixel'
+    Height75vh: '75% der Viewport-Höhe'
+    Height800px: '800 Pixel'
+    HeightContent: 'An den Inhalt angepasst'
+    HeightDefault: 'Standard (nutze seitenweite Einstellungen)'
+    PLURALNAME: 'Hero-Banner-Blöcke'
+    PLURALS:
+      one: 'Ein Hero-Banner-Block'
+      other: '{count} Hero-Banner-Blöcke'
+    SINGULARNAME: 'Hero-Banner-Block'
+    Summary: 'Zeigt ein Hero-Banner mit Text über einem Bild.'
+    Type: 'Hero-Banner'
+    db_Content: 'Inhalt'
+    db_DisplayHeight: 'Anzeigehöhe'
+  minimalic\Fundamental\Modules\ModuleHeroSplit:
+    PLURALNAME: 'Hero-Split-Blöcke'
+    PLURALS:
+      one: 'Ein Hero-Split-Block'
+      other: '{count} Hero-Split-Blöcke'
+    SINGULARNAME: 'Hero-Split-Block'
+    Summary: 'Zeigt Text und Bild als nebeneinanderliegende Elemente.'
+    SwitchOrder: 'Reihenfolge von Text und Bild wechseln'
+    Type: 'Hero-Split'
+    db_Content: 'Inhalt'
+    db_SwitchOrder: 'Reihenfolgewechsel'
   minimalic\Fundamental\Modules\ModuleImage:
-    AllowUpscale: 'Bildvergrößerung zulassen'
+    AllowUpscale: 'Bildvergrößerung erlauben'
     AllowUpscaleDescription: 'Die Vergrößerung wird nur auf der Webseite angewendet, nicht auf der Bilddatei selbst.'
-    Dimensions: Abmessungen
-    DimensionsDescription: "Geben Sie die Abmessungen in Pixeln an. Setzen Sie 0 (null) für die Standardgröße des Bildes.<br>Das Bild wird skaliert und zugeschnitten, um die neue Auflösung anzupassen. Wird nur ein Wert angegeben, wird das Bild mit dem ursprünglichen Seitenverhältnis skaliert.<br>Das Bild wird nicht vergrößert."
+    Dimensions: 'Abmessungen'
+    DimensionsDescription: 'Gib die Abmessungen in Pixeln an. Setze 0 für die Standardgröße des Bildes.<br>Das Bild wird skaliert und zugeschnitten, um die neue Auflösung anzupassen. Wenn nur ein Wert gesetzt ist, bleibt das ursprüngliche Seitenverhältnis erhalten.<br>Vergrößerung ist deaktiviert.'
     FullWidth: 'In voller Seitenbreite anzeigen'
-    Height: Höhe
+    Height: 'Höhe'
     PLURALNAME: 'Bildblöcke'
     PLURALS:
       one: 'Ein Bildblock'
       other: '{count} Bildblöcke'
     SINGULARNAME: 'Bildblock'
-    Summary: 'Der Block zeigt ein Bild als Banner'
-    Type: Bild
-    Width: Breite
-    db_AllowUpscale: 'Bildvergrößerung zulassen'
-    db_FullWidth: 'Volle Breite'
-    db_Height: Höhe
-    db_Width: Breite
-    has_one_Image: Bild
+    Summary: 'Zeigt ein Bild als Banner.'
+    Type: 'Bild'
+    Width: 'Breite'
+    db_AllowUpscale: 'Bildvergrößerung erlauben'
+    db_FullWidth: 'Volle Seitenbreite'
+    db_Height: 'Höhe'
+    db_Width: 'Breite'
+    has_one_Image: 'Bild'
   minimalic\Fundamental\Pages\ModularPage:
-    DESCRIPTION: 'Seite mit modularen Elementen'
+    DESCRIPTION: 'Eine Seite mit modularen Elementen.'
     PLURALNAME: 'Modulare Seiten'
     PLURALS:
       one: 'Eine modulare Seite'
       other: '{count} modulare Seiten'
     SINGULARNAME: 'Modulare Seite'
-    has_one_ElementalArea: 'Elementalbereich'
+    has_one_ElementalArea: 'Elemental-Bereich'

@@ -14,11 +14,8 @@ class ModuleImage extends BaseElement
     private static $icon = 'font-icon-block-file';
 
     private static $singular_name = 'Image Block';
-
     private static $plural_name = 'Image Blocks';
-
     private static $description = 'Block with single image banner';
-
     private static $table_name = 'ModuleImage';
 
     private static $db = [
@@ -67,7 +64,8 @@ class ModuleImage extends BaseElement
         $fieldDimensions = FieldGroup::create(
             $fieldWidth,
             $fieldHeight
-        )->setTitle(_t(__CLASS__ . '.Dimensions', 'Dimensions'))->setDescription(_t(__CLASS__ . '.DimensionsDescription', "Enter the dimensions in pixels. Set 0 for the image’s default size.<br>Image will be scaled and cropped to fit the new resolution. If only one value is set, the image will maintain its original aspect ratio.<br>Upscaling is disabled."));
+        )->setTitle(_t(__CLASS__ . '.Dimensions', 'Dimensions'))
+         ->setDescription(_t(__CLASS__ . '.DimensionsDescription', "Enter the dimensions in pixels. Set 0 for the image’s default size.<br>Image will be scaled and cropped to fit the new resolution. If only one value is set, the image will maintain its original aspect ratio.<br>Upscaling is disabled."));
 
         $fields->addFieldsToTab('Root.Settings', [
             $fieldFullWidth,
@@ -78,7 +76,11 @@ class ModuleImage extends BaseElement
         return $fields;
     }
 
-    // returns resized instance of the image
+    /**
+     * Resizes the image based on provided dimensions.
+     *
+     * @return Image
+     */
     public function getResizedImage()
     {
         $imageSource = $this->Image();
@@ -108,18 +110,19 @@ class ModuleImage extends BaseElement
         return _t(__CLASS__ . '.Type', 'Image');
     }
 
+    /**
+     * Ensures only numeric input for dimensions before writing to the database.
+     */
     public function onBeforeWrite() {
         parent::onBeforeWrite();
 
         if (isset($this->Width)) {
             $cleanWidth = preg_replace('/\D/', '', $this->Width);
-
             $this->Width = substr($cleanWidth, 0, 5);
         }
 
         if (isset($this->Height)) {
             $cleanHeight = preg_replace('/\D/', '', $this->Height);
-
             $this->Height = substr($cleanHeight, 0, 5);
         }
     }
