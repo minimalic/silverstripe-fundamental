@@ -3,6 +3,7 @@
 namespace minimalic\Fundamental\Modules;
 
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DropdownField;
 
 use DNADesign\Elemental\Models\BaseElement;
 
@@ -20,7 +21,7 @@ class ModuleHeroBanner extends ModuleImage
 
     private static $db = [
         'Content' => 'HTMLText',
-        'FullHeight' => 'Boolean',
+        'DisplayHeight' => 'Varchar',
     ];
 
     private static $has_one = [
@@ -30,6 +31,7 @@ class ModuleHeroBanner extends ModuleImage
     ];
 
     private static $defaults = [
+        'DisplayHeight' => 'default',
     ];
 
     private static $inline_editable = false;
@@ -38,10 +40,22 @@ class ModuleHeroBanner extends ModuleImage
     {
         $fields = parent::getCMSFields();
 
-        $fieldFullHeight = CheckboxField::create('FullHeight', _t(__CLASS__ . '.FullHeight', 'Display at Full Page Height'));
+        $heights = [
+            'default' => 'Default',
+            'content' => 'Stretched to Content',
+            '50vh' => '50% of Viewport Height',
+            '75vh' => '75% of Viewport Height',
+            '100vh' => '100% of Viewport Height',
+            '360px' => '360 Pixels',
+            '500px' => '500 Pixels',
+            '640px' => '640 Pixels',
+            '800px' => '800 Pixels',
+        ];
+
+        $fieldDisplayHeight = DropdownField::create('DisplayHeight', _t(__CLASS__ . '.DisplayHeight', 'Banner Display Height'), $heights);
 
         $fields->addFieldsToTab('Root.Settings', [
-            $fieldFullHeight,
+            $fieldDisplayHeight,
         ], 'FullWidth');
 
         return $fields;
