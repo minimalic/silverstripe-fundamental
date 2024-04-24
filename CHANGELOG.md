@@ -1,6 +1,16 @@
 # Change Log
 
 
+## [1.1.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.1.0) (2024-04-24)
+
+### Features:
+* Add new Image Block module
+* Add new Hero Banner Block module:
+Displays a hero banner featuring text overlayed on an image.
+* Add new Hero Split Block module:
+Displays a hero split with image and text side-by-side.
+
+
 ## [1.0.1](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.0.1) (2024-04-21)
 
 ### Fixes/Features:
