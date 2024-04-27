@@ -3,9 +3,11 @@
 namespace minimalic\Fundamental\Modules;
 
 use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\FieldGroup;
+use SilverStripe\View\Parsers\URLSegmentFilter;
 
 use DNADesign\Elemental\Models\BaseElement;
 
@@ -17,6 +19,9 @@ class ModuleImage extends BaseElement
     private static $plural_name = 'Image Blocks';
     private static $description = 'Block with single image banner';
     private static $table_name = 'ModuleImage';
+
+    private static $image_directory = '';
+    private static $image_directory_with_title = false;
 
     private static $db = [
         'FullWidth' => 'Boolean',
@@ -46,7 +51,17 @@ class ModuleImage extends BaseElement
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName(['Width', 'Height']);
+        $fields->removeByName(['Image', 'Width', 'Height']);
+
+        $fieldImage = UploadField::create('Image');
+        $imageUploadPath = $this->generateUploadDirectory();
+        if (!empty($imageUploadPath) && $imageUploadPath != '/') {
+            $fieldImage->setFolderName($imageUploadPath);
+        }
+
+        $fields->addFieldsToTab('Root.Main', [
+            $fieldImage,
+        ]);
 
         $fieldFullWidth = CheckboxField::create('FullWidth', _t(__CLASS__ . '.FullWidth', 'Display at Full Page Width'));
 
@@ -74,6 +89,31 @@ class ModuleImage extends BaseElement
         ]);
 
         return $fields;
+    }
+
+    /**
+     * Generates image upload directory based on config.
+     *
+     * @return String
+     */
+    public function generateUploadDirectory()
+    {
+        $filter = URLSegmentFilter::create();
+        $uploadPath = '';
+        $configuredDirectory = $this->config()->get('image_directory');
+        $configuredDirectoryWithTitle = $this->config()->get('image_directory_with_title');
+
+        if (!empty($configuredDirectory)) {
+            $normalizedDirectory = $filter->filter($configuredDirectory);
+            $uploadPath = $normalizedDirectory . '/';
+        }
+
+        if ($configuredDirectoryWithTitle == true && !empty($this->Title)) {
+            $titleSegment = $filter->filter($this->Title);
+            $uploadPath .=  $titleSegment . '/';
+        }
+
+        return $uploadPath;
     }
 
     /**
