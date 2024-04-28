@@ -1,6 +1,12 @@
 # Change Log
 
 
+## [1.1.1](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.1.1) (2024-04-28)
+
+### Features:
+* Add configuration for custom upload directory for images
+
+
 ## [1.1.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.1.0) (2024-04-24)
 
 ### Features:
