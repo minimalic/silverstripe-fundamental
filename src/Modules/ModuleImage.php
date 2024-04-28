@@ -29,11 +29,11 @@ class ModuleImage extends BaseElement
 
     /**
      * Subdirectory for uploaded Image. Available options:
-     * 'parent', 'element', '' (empty: disabled)
+     * 'parent', 'class/parent', 'element', 'class/element', '' (empty: disabled)
      *
      * @String
      */
-    private static $image_sub_directory = 'parent';
+    private static $image_sub_directory = 'class/parent';
 
     private static $db = [
         'FullWidth' => 'Boolean',
@@ -114,16 +114,26 @@ class ModuleImage extends BaseElement
         $uploadPath = '';
         $configuredDirectory = $this->config()->get('image_directory');
         $configuredSubDirectory = $this->config()->get('image_sub_directory');
-        $parentTitle = $this->Parent()->getOwnerPage()->Title;
+        $parentPage = $this->Parent()->getOwnerPage();
 
         if (!empty($configuredDirectory)) {
             $normalizedDirectory = $filter->filter($configuredDirectory);
             $uploadPath = $normalizedDirectory . '/';
         }
 
-        if ($configuredSubDirectory == 'parent' && !empty($parentTitle)) {
-            $titleSegment = $filter->filter($parentTitle);
+        if ($configuredSubDirectory == 'class/parent' && $parentPage && $parentPage->exists()) {
+            $className = basename(str_replace('\\', '/', $parentPage->ClassName));
+            $classSegment = $filter->filter($className);
+            $titleSegment = $filter->filter($parentPage->Title);
+            $uploadPath .=  $classSegment . '/' . $titleSegment . '/';
+        } elseif ($configuredSubDirectory == 'parent' && $parentPage && $parentPage->exists()) {
+            $titleSegment = $filter->filter($parentPage->Title);
             $uploadPath .=  $titleSegment . '/';
+        } elseif ($configuredSubDirectory == 'class/element' && !empty($this->Title)) {
+            $className = basename(str_replace('\\', '/', $this->ClassName));
+            $classSegment = $filter->filter($className);
+            $titleSegment = $filter->filter($this->Title);
+            $uploadPath .=  $classSegment . '/' . $titleSegment . '/';
         } elseif ($configuredSubDirectory == 'element' && !empty($this->Title)) {
             $titleSegment = $filter->filter($this->Title);
             $uploadPath .=  $titleSegment . '/';
