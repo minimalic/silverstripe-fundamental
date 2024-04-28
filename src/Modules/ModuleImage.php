@@ -20,8 +20,20 @@ class ModuleImage extends BaseElement
     private static $description = 'Block with single image banner';
     private static $table_name = 'ModuleImage';
 
-    private static $image_directory = '';
-    private static $image_directory_with_title = false;
+    /**
+     * Main Directory for uploaded Image. Empty String for none.
+     *
+     * @String
+     */
+    private static $image_directory = 'images';
+
+    /**
+     * Subdirectory for uploaded Image. Available options:
+     * 'parent', 'element', '' (empty: disabled)
+     *
+     * @String
+     */
+    private static $image_sub_directory = 'parent';
 
     private static $db = [
         'FullWidth' => 'Boolean',
@@ -101,14 +113,18 @@ class ModuleImage extends BaseElement
         $filter = URLSegmentFilter::create();
         $uploadPath = '';
         $configuredDirectory = $this->config()->get('image_directory');
-        $configuredDirectoryWithTitle = $this->config()->get('image_directory_with_title');
+        $configuredSubDirectory = $this->config()->get('image_sub_directory');
+        $parentTitle = $this->Parent()->getOwnerPage()->Title;
 
         if (!empty($configuredDirectory)) {
             $normalizedDirectory = $filter->filter($configuredDirectory);
             $uploadPath = $normalizedDirectory . '/';
         }
 
-        if ($configuredDirectoryWithTitle == true && !empty($this->Title)) {
+        if ($configuredSubDirectory == 'parent' && !empty($parentTitle)) {
+            $titleSegment = $filter->filter($parentTitle);
+            $uploadPath .=  $titleSegment . '/';
+        } elseif ($configuredSubDirectory == 'element' && !empty($this->Title)) {
             $titleSegment = $filter->filter($this->Title);
             $uploadPath .=  $titleSegment . '/';
         }
