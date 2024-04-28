@@ -57,7 +57,7 @@ Alternatively copy the entire `vendor/minimalic/silverstripe-fundamental/templat
 ### Custom options for image upload directory
 
 By default images (modules: "Image Block", "Hero Banner Block"...) will be uploaded to `images/parent-class/parent-title`, where `parent` is the page/object holding the module.
-To change this behavior make your own YAML config (e.g. inside `mysite.yml`):
+To change this behavior add to your config (e.g. inside `mysite.yml`):
 
 ```yaml
 minimalic\Fundamental\Modules\ModuleImage:
@@ -71,6 +71,18 @@ The available options for `image_directory_sub_struct` are:
 - `class/parent` (parent page class/title, default)
 - `element` (current element title)
 - `class/element` (current element class/title)
+
+
+### Set image resize quality
+
+Set the quality globally inside your config (e.g. `mysite.yml`):
+
+```yaml
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\Assets\Image_Backend:
+    properties:
+      Quality: 70
+```
 
 
 ### Remap Local Elemental Extensions (Optional)
