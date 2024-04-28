@@ -1,6 +1,12 @@
 # Change Log
 
 
+## [1.1.2](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.1.2) (2024-04-28)
+
+### Fixes:
+* Fix resampling images with dimensions below 3840px when enabling `force_resample` global configuration
+
+
 ## [1.1.1](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.1.1) (2024-04-28)
 
 ### Features:
