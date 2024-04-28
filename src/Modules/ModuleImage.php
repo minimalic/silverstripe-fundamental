@@ -25,7 +25,7 @@ class ModuleImage extends BaseElement
      *
      * @String
      */
-    private static $image_directory = 'images';
+    private static $image_directory_name = 'images';
 
     /**
      * Subdirectory for uploaded Image. Available options:
@@ -33,7 +33,7 @@ class ModuleImage extends BaseElement
      *
      * @String
      */
-    private static $image_sub_directory = 'class/parent';
+    private static $image_directory_sub_struct = 'class/parent';
 
     private static $db = [
         'FullWidth' => 'Boolean',
@@ -112,8 +112,8 @@ class ModuleImage extends BaseElement
     {
         $filter = URLSegmentFilter::create();
         $uploadPath = '';
-        $configuredDirectory = $this->config()->get('image_directory');
-        $configuredSubDirectory = $this->config()->get('image_sub_directory');
+        $configuredDirectory = $this->config()->get('image_directory_name');
+        $configuredSubDirectory = $this->config()->get('image_directory_sub_struct');
         $parentPage = $this->Parent()->getOwnerPage();
 
         if (!empty($configuredDirectory)) {
