@@ -73,9 +73,11 @@ The available options for `image_directory_sub_struct` are:
 - `class/element` (current element class/title)
 
 
+## Global configuration
+
 ### Set image resize quality
 
-Set the quality globally inside your config (e.g. `mysite.yml`):
+Set the global image quality inside your config (e.g. `mysite.yml`):
 
 ```yaml
 SilverStripe\Core\Injector\Injector:
