@@ -12,7 +12,7 @@
     <% end_if %>
         <div class="row<% if $FullWidth %> g-0<% end_if %>">
             <div class="col">
-                <img src="{$ResizedImage.Link}" class="img-fluid<% if $AllowUpscale %> w-100<% end_if %>" alt="$Image.Title.XML">
+                <img src="{$ResizedImage.URL}" class="img-fluid<% if $AllowUpscale %> w-100<% end_if %>" alt="$Image.Title.XML">
             </div>
             <div class="col<% if $SwitchOrder %> order-first<% end_if %><% if $FullWidth %> px-5<% end_if %>">
                 $Content
