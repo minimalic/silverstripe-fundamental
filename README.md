@@ -77,9 +77,15 @@ The available options for `image_directory_sub_struct` are:
 
 ### Set image resize quality
 
-Set the global image quality inside your config (e.g. `mysite.yml`):
+Set the global image quality inside your config (e.g. `mysite.yml`) and enable forced resampling for not-resized images (optional):
 
 ```yaml
+SilverStripe\Assets\File:
+  force_resample: true
+
+SilverStripe\Assets\Storage\DBFile:
+  force_resample: true
+
 SilverStripe\Core\Injector\Injector:
   SilverStripe\Assets\Image_Backend:
     properties:
