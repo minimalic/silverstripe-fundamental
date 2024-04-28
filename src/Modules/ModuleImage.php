@@ -159,8 +159,10 @@ class ModuleImage extends BaseElement
             $imageOutput = $imageSource->ScaleMaxWidth($width);
         } elseif ($height > 0) {
             $imageOutput = $imageSource->ScaleMaxWidth($height);
-        } else {
+        } elseif ($imageSource->getWidth() > 3840 || $imageSource->getHeight() > 3840) {
             $imageOutput = $imageSource->FitMax(3840, 3840);
+        } else {
+            $imageOutput = $imageSource;
         }
 
         return $imageOutput;
@@ -182,12 +184,12 @@ class ModuleImage extends BaseElement
     public function onBeforeWrite() {
         parent::onBeforeWrite();
 
-        if (isset($this->Width)) {
+        if (isset($this->Width) && $this->Width != '') {
             $cleanWidth = preg_replace('/\D/', '', $this->Width);
             $this->Width = substr($cleanWidth, 0, 5);
         }
 
-        if (isset($this->Height)) {
+        if (isset($this->Height) && $this->Height != '') {
             $cleanHeight = preg_replace('/\D/', '', $this->Height);
             $this->Height = substr($cleanHeight, 0, 5);
         }
