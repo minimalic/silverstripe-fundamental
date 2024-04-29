@@ -21,9 +21,9 @@ class ModuleImage extends BaseElement
     private static $table_name = 'ModuleImage';
 
     /**
-     * Main Directory for uploaded Image. Empty String for none.
+     * Main Directory for uploaded Image, empty String for none
      *
-     * @String
+     * @string
      */
     private static $image_directory_name = 'images';
 
@@ -31,7 +31,7 @@ class ModuleImage extends BaseElement
      * Subdirectory for uploaded Image. Available options:
      * 'parent', 'class/parent', 'element', 'class/element', '' (empty: disabled)
      *
-     * @String
+     * @string
      */
     private static $image_directory_sub_struct = 'class/parent';
 
@@ -104,9 +104,9 @@ class ModuleImage extends BaseElement
     }
 
     /**
-     * Generates image upload directory based on config.
+     * Generate image upload directory based on config
      *
-     * @return String
+     * @return string
      */
     public function generateUploadDirectory()
     {
@@ -143,7 +143,7 @@ class ModuleImage extends BaseElement
     }
 
     /**
-     * Resizes the image based on provided dimensions.
+     * Resize the image based on provided dimensions
      *
      * @return Image
      */
@@ -179,7 +179,7 @@ class ModuleImage extends BaseElement
     }
 
     /**
-     * Ensures only numeric input for dimensions before writing to the database.
+     * Ensure only numeric input for dimensions (before writing to the database)
      */
     public function onBeforeWrite() {
         parent::onBeforeWrite();
