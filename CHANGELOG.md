@@ -1,6 +1,13 @@
 # Change Log
 
 
+## [1.1.3](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.1.3) (2024-04-30)
+
+### Features:
+* Use Bootstrap breakpoints on split view
+* Use custom classes with BEM naming convention
+
+
 ## [1.1.2](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.1.2) (2024-04-28)
 
 ### Fixes:
