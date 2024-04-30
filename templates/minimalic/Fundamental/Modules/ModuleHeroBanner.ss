@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <% else %>
-                <div class="position-relative module-herobanner_image"<% if $DisplayHeight != 'default' %> style="height: {$DisplayHeight}"<% end_if %>>
+                <div class="position-relative module-herobanner__image"<% if $DisplayHeight != 'default' %> style="height: {$DisplayHeight}"<% end_if %>>
                     <img src="{$ResizedImage.URL}" class="img-fluid<% if $AllowUpscale %> w-100<% end_if %><% if $DisplayHeight != 'default' %> h-100 object-fit-cover<% end_if %>" alt="$Image.Title.XML">
 
                     <div class="position-absolute top-50 start-50 translate-middle text-light lead module-herobanner__content">
