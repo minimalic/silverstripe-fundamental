@@ -11,8 +11,8 @@
     <div class="container module-herosplit__container">
     <% end_if %>
         <div class="row<% if $FullWidth %> g-0<% end_if %>">
-            <div class="col-md-6 module-herosplit__image">
-                <img src="{$ResizedImage.URL}" class="img-fluid<% if $AllowUpscale %> w-100<% end_if %>" alt="$Image.Title.XML">
+            <div class="col-md-6 module-herosplit__image-wrapper">
+                <img src="{$ResizedImage.URL}" class="img-fluid<% if $AllowUpscale %> w-100<% end_if %> module-herosplit__image-source" alt="$Image.Title.XML">
             </div>
             <div class="col-md-6<% if $SwitchOrder %> order-first<% end_if %><% if $FullWidth %> px-5<% end_if %> module-herosplit__content">
                 $Content
