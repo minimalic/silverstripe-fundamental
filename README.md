@@ -26,7 +26,7 @@ Or, use your base URL with:
 
 ## Available Modules
 
-- Image Block (`ModuleImage.ss`) - Block with single image banner
+- Image Block (`ModuleImage`) - Block with single image banner
 - Hero Banner Block (`ModuleHeroBanner`) - Displays a hero banner featuring text overlayed on an image
 - Hero Split Block (`ModuleHeroSplit`) - Displays a hero split with image and text side-by-side. Allows switching the order
 
