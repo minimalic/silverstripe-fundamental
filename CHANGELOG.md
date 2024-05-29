@@ -1,6 +1,12 @@
 # Change Log
 
 
+## [1.2.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.2.0) (2024-05-29)
+
+### Features:
+* Add new Slideshow module (Bootstrap Carousel compatible)
+
+
 ## [1.1.3](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.1.3) (2024-04-30)
 
 ### Features:
