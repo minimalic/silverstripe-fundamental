@@ -29,21 +29,6 @@ class ModuleSlideshow extends BaseElement
 
     private static $table_name = 'ModuleSlideshow';
 
-    /**
-     * Main Directory for uploaded Image, empty String for none
-     *
-     * @string
-     */
-    private static $image_directory_name = 'images';
-
-    /**
-     * Subdirectory for uploaded Image. Available options:
-     * 'parent', 'class/parent', 'element', 'class/element', '' (empty: disabled)
-     *
-     * @string
-     */
-    private static $image_directory_sub_struct = 'parent';
-
     private static $db = [
         'FullWidth' => 'Boolean',
         'Autoplay' => 'Boolean',
