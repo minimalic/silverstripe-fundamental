@@ -7,6 +7,7 @@ Provides essential, foundational elements for building modular pages using Silve
 
 * Silverstripe CMS version 4 or 5
 * Silverstripe Elemental
+* Silverstripe Grid Field Extensions Module
 
 
 ## Installation
@@ -29,6 +30,7 @@ Or, use your base URL with:
 - Image Block (`ModuleImage`) - Block with single image banner
 - Hero Banner Block (`ModuleHeroBanner`) - Displays a hero banner featuring text overlayed on an image
 - Hero Split Block (`ModuleHeroSplit`) - Displays a hero split with image and text side-by-side. Allows switching the order
+- Slideshow (`ModuleSlideshow`) - Image slider/carousel (Bootstrap compatible)
 
 
 ## Customization
@@ -71,6 +73,9 @@ The available options for `image_directory_sub_struct` are:
 - `class/parent` (parent page class/title, default)
 - `element` (current element title)
 - `class/element` (current element class/title)
+
+The "Slideshow" module provide one additional `image_directory_name` option:
+- `parent/element` (parent page title/current element title)
 
 
 ## Global configuration
