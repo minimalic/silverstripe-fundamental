@@ -1,13 +1,14 @@
 # Silverstripe Fundamental - a foundation for modular pages
 
-Provides essential, foundational elements for building modular pages using Silverstripe CMS 5 and the [Elemental](https://github.com/silverstripe/silverstripe-elemental) module.
+Provides essential, foundational elements for building modular pages using Silverstripe CMS and the [Elemental](https://github.com/silverstripe/silverstripe-elemental) module.
 
 
 ## Requirements
 
-* Silverstripe CMS version 4 or 5
-* Silverstripe Elemental
-* Silverstripe Grid Field Extensions Module
+* Silverstripe CMS 5.2 or higher
+* [Silverstripe Elemental](https://github.com/silverstripe/silverstripe-elemental)
+* [Silverstripe Grid Field Extensions Module](https://github.com/symbiote/silverstripe-gridfieldextensions)
+* [Silverstripe link module](https://github.com/silverstripe/silverstripe-linkfield)
 
 
 ## Installation
