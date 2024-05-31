@@ -50,6 +50,50 @@ en:
     db_Height: Height
     db_Width: Width
     has_one_Image: Image
+  minimalic\Fundamental\Modules\ModuleSlideshow:
+    Autoplay: Autoplay
+    AutoplayInterval: 'Autoplay interval in milliseconds (min. 300)'
+    Dimensions: Dimensions
+    DimensionsDescription: 'Enter the dimensions in pixels. Set 0 for the image’s default size.<br>Image will be scaled and cropped to fit the new resolution. If only one value is set, the image will maintain its original aspect ratio.<br>Upscaling is disabled.'
+    FullWidth: 'Display at Full Page Width'
+    Height: Height
+    PLURALNAME: 'Slideshow Blocks'
+    PLURALS:
+      one: 'A Slideshow Block'
+      other: '{count} Slideshow Blocks'
+    SINGULARNAME: 'Slideshow Block'
+    ShowCaptions: 'Display captions'
+    ShowControls: 'Display slide controls'
+    ShowIndicators: 'Display slide indicators'
+    SlideAutoplay: 'Slide Autoplay'
+    SlideCrossfade: 'Crossfade effect'
+    SlideOptions: 'Slide Options'
+    Summary: 'Displays images as slideshow/carousel.'
+    Type: Slideshow
+    Width: Width
+    db_Autoplay: Autoplay
+    db_AutoplayInterval: 'Autoplay interval'
+    db_FullWidth: 'Full width'
+    db_Height: Height
+    db_ShowCaptions: 'Show captions'
+    db_ShowControls: 'Show controls'
+    db_ShowIndicators: 'Show indicators'
+    db_SlideCrossfade: 'Slide crossfade'
+    db_Width: Width
+    has_many_Slides: Slides
+  minimalic\Fundamental\Objects\ObjectSlide:
+    Enabled: 'Enable slide'
+    PLURALNAME: Slides
+    PLURALS:
+      one: 'A Slide'
+      other: '{count} Slides'
+    SINGULARNAME: Slide
+    db_Content: Content
+    db_Enabled: Enabled
+    db_Sort: Sort
+    db_Title: Title
+    has_one_Image: Image
+    has_one_ModuleSlideshow: 'Module slideshow'
   minimalic\Fundamental\Pages\ModularPage:
     DESCRIPTION: 'A page with modular elements.'
     PLURALNAME: 'Modular Pages'
