@@ -1,6 +1,12 @@
 # Change Log
 
 
+## [1.2.1](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.2.1) (2024-05-31)
+
+### Fixes:
+* Update translations for Slideshow module
+
+
 ## [1.2.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.2.0) (2024-05-29)
 
 ### Features:
