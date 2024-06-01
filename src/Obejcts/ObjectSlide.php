@@ -9,6 +9,8 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\View\Parsers\URLSegmentFilter;
+use SilverStripe\LinkField\Form\MultiLinkField;
+use SilverStripe\LinkField\Models\Link;
 use minimalic\Fundamental\Modules\ModuleSlideshow;
 
 class ObjectSlide extends DataObject
@@ -49,8 +51,21 @@ class ObjectSlide extends DataObject
         'ModuleSlideshow' => ModuleSlideshow::class,
     ];
 
+    private static $has_many = [
+        'Links' => Link::class . '.Owner',
+    ];
+
     private static $owns = [
         'Image',
+        'Links',
+    ];
+
+    private static array $cascade_deletes = [
+        'Links',
+    ];
+
+    private static array $cascade_duplicates = [
+        'Links',
     ];
 
     private static $summary_fields = [
@@ -76,7 +91,7 @@ class ObjectSlide extends DataObject
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName(['Sort', 'ModuleSlideshowID']);
+        $fields->removeByName(['Sort', 'ModuleSlideshowID', 'Links']);
 
         $fieldEnabled = CheckboxField::create('Enabled', _t(__CLASS__ . '.Enabled', 'Enable slide'));
 
@@ -86,10 +101,16 @@ class ObjectSlide extends DataObject
             $fieldImage->setFolderName($imageUploadPath);
         }
 
+        $fieldLinks = MultiLinkField::create('Links', _t(__CLASS__ . '.Links', 'Links'));
+
         $fields->addFieldsToTab('Root.Main', [
             $fieldEnabled,
             $fieldImage,
         ], 'Title');
+
+        $fields->addFieldsToTab('Root.Main', [
+            $fieldLinks,
+        ]);
 
         return $fields;
     }

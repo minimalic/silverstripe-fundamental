@@ -13,6 +13,13 @@
                         <h1 class="display-1 module-herobanner__title">$Title</h2>
                         <% end_if %>
                         $Content
+                        <% if $Links %>
+                        <div class="module-herobanner__item-buttons">
+                            <% loop Links %>
+                            <a class="btn <% if $Theme %>btn-{$Theme}<% else %>btn-primary<% end_if %>" href="$URL" role="button">$Title</a>
+                            <% end_loop %>
+                        </div>
+                        <% end_if %>
                     </div>
                 </div>
                 <% else %>
@@ -24,6 +31,13 @@
                         <h1 class="display-1 module-herobanner__title">$Title</h2>
                         <% end_if %>
                         $Content
+                        <% if $Links %>
+                        <div class="module-herobanner__item-buttons">
+                            <% loop Links %>
+                            <a class="btn <% if $Theme %>btn-{$Theme}<% else %>btn-primary<% end_if %>" href="$URL" role="button">$Title</a>
+                            <% end_loop %>
+                        </div>
+                        <% end_if %>
                     </div>
                 </div>
                 <% end_if %>

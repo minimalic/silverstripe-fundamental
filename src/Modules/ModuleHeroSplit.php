@@ -3,7 +3,8 @@
 namespace minimalic\Fundamental\Modules;
 
 use SilverStripe\Forms\CheckboxField;
-
+use SilverStripe\LinkField\Form\MultiLinkField;
+use SilverStripe\LinkField\Models\Link;
 use DNADesign\Elemental\Models\BaseElement;
 
 class ModuleHeroSplit extends ModuleImage
@@ -20,10 +21,20 @@ class ModuleHeroSplit extends ModuleImage
         'SwitchOrder' => 'Boolean',
     ];
 
-    private static $has_one = [
+    private static $has_many = [
+        'Links' => Link::class . '.Owner',
     ];
 
     private static $owns = [
+        'Links',
+    ];
+
+    private static array $cascade_deletes = [
+        'Links',
+    ];
+
+    private static array $cascade_duplicates = [
+        'Links',
     ];
 
     private static $defaults = [
@@ -35,6 +46,14 @@ class ModuleHeroSplit extends ModuleImage
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+
+        $fields->removeByName(['Links']);
+
+        $fieldLinks = MultiLinkField::create('Links', _t(__CLASS__ . '.Links', 'Links'));
+
+        $fields->addFieldsToTab('Root.Main', [
+            $fieldLinks,
+        ], 'Image');
 
         $fieldSwitchOrder = CheckboxField::create(
             'SwitchOrder',

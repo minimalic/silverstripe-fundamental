@@ -16,6 +16,13 @@
             </div>
             <div class="col-md-6<% if $SwitchOrder %> order-first<% end_if %><% if $FullWidth %> px-5<% end_if %> module-herosplit__content">
                 $Content
+                <% if $Links %>
+                <div class="module-herosplit__item-buttons">
+                    <% loop Links %>
+                    <a class="btn <% if $Theme %>btn-{$Theme}<% else %>btn-primary<% end_if %>" href="$URL" role="button">$Title</a>
+                    <% end_loop %>
+                </div>
+                <% end_if %>
             </div>
         </div>
     </div>

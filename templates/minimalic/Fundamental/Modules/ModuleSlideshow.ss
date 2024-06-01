@@ -34,6 +34,13 @@
                         <div class="carousel-caption d-none d-md-block">
                             <% if $Title %><h5>$Title</h5><% end_if %>
                             <% if $Content %><p>$Content</p><% end_if %>
+                            <% if $Links %>
+                            <div class="module-slideshow__item-buttons">
+                                <% loop Links %>
+                                <a class="btn <% if $Theme %>btn-{$Theme}<% else %>btn-primary<% end_if %>" href="$URL" role="button">$Title</a>
+                                <% end_loop %>
+                            </div>
+                            <% end_if %>
                         </div>
                         <% end_if %>
                     </div>
