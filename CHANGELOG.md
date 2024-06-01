@@ -1,6 +1,14 @@
 # Change Log
 
 
+## [2.0.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.0.0) (2024-06-02)
+
+### Features:
+* Higher requirements (Silverstripe 5.2)
+* New `silverstripe/linkfield` requirement
+* New linkfield based buttons (Bootstrap compatible) for `ModuleHeroBanner`, `ModuleHeroSplit` and `ModuleSlideshow`
+
+
 ## [1.2.1](https://github.com/minimalic/silverstripe-fundamental/releases/tag/1.2.1) (2024-05-31)
 
 ### Fixes:
