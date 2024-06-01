@@ -10,6 +10,7 @@ en:
     Height800px: '800 Pixels'
     HeightContent: 'Stretched to Content'
     HeightDefault: 'Default (use site-wide settings)'
+    Links: Links
     PLURALNAME: 'Hero Banner Blocks'
     PLURALS:
       one: 'A Hero Banner Block'
@@ -19,7 +20,9 @@ en:
     Type: 'Hero Banner'
     db_Content: Content
     db_DisplayHeight: 'Display height'
+    has_many_Links: Links
   minimalic\Fundamental\Modules\ModuleHeroSplit:
+    Links: Links
     PLURALNAME: 'Hero Split Blocks'
     PLURALS:
       one: 'A Hero Split Block'
@@ -30,6 +33,7 @@ en:
     Type: 'Hero Split'
     db_Content: Content
     db_SwitchOrder: 'Switch order'
+    has_many_Links: Links
   minimalic\Fundamental\Modules\ModuleImage:
     AllowUpscale: 'Allow Image Upscale'
     AllowUpscaleDescription: 'Upscale will only apply on the website, not on the image file itself.'
@@ -83,6 +87,7 @@ en:
     has_many_Slides: Slides
   minimalic\Fundamental\Objects\ObjectSlide:
     Enabled: 'Enable slide'
+    Links: Links
     PLURALNAME: Slides
     PLURALS:
       one: 'A Slide'
@@ -92,6 +97,7 @@ en:
     db_Enabled: Enabled
     db_Sort: Sort
     db_Title: Title
+    has_many_Links: Links
     has_one_Image: Image
     has_one_ModuleSlideshow: 'Module slideshow'
   minimalic\Fundamental\Pages\ModularPage:

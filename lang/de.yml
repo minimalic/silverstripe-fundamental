@@ -10,6 +10,7 @@ de:
     Height800px: '800 Pixel'
     HeightContent: 'An den Inhalt angepasst'
     HeightDefault: 'Standard (nutze seitenweite Einstellungen)'
+    Links: Links
     PLURALNAME: 'Hero-Banner-Blöcke'
     PLURALS:
       one: 'Ein Hero-Banner-Block'
@@ -19,7 +20,9 @@ de:
     Type: 'Hero-Banner'
     db_Content: 'Inhalt'
     db_DisplayHeight: 'Anzeigehöhe'
+    has_many_Links: Links
   minimalic\Fundamental\Modules\ModuleHeroSplit:
+    Links: Links
     PLURALNAME: 'Hero-Split-Blöcke'
     PLURALS:
       one: 'Ein Hero-Split-Block'
@@ -30,6 +33,7 @@ de:
     Type: 'Hero-Split'
     db_Content: 'Inhalt'
     db_SwitchOrder: 'Reihenfolgewechsel'
+    has_many_Links: Links
   minimalic\Fundamental\Modules\ModuleImage:
     AllowUpscale: 'Hochskalieren erlauben'
     AllowUpscaleDescription: 'Hochskalieren wird nur auf der Webseite angewendet, nicht auf der Bilddatei selbst.'
@@ -83,6 +87,7 @@ de:
     has_many_Slides: 'Folien'
   minimalic\Fundamental\Objects\ObjectSlide:
     Enabled: 'Folie aktivieren'
+    Links: Links
     PLURALNAME: 'Folien'
     PLURALS:
       one: 'Eine Folie'
@@ -92,6 +97,7 @@ de:
     db_Enabled: 'Aktiviert'
     db_Sort: 'Sortierung'
     db_Title: 'Titel'
+    has_many_Links: Links
     has_one_Image: 'Bild'
     has_one_ModuleSlideshow: 'Slideshow Modul'
   minimalic\Fundamental\Pages\ModularPage:
