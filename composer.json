@@ -17,7 +17,8 @@
         "silverstripe/cms": "^5",
         "dnadesign/silverstripe-elemental": "^5",
         "symbiote/silverstripe-gridfieldextensions": "^4",
-        "silverstripe/linkfield": "^4"
+        "silverstripe/linkfield": "^4",
+        "colymba/gridfield-bulk-editing-tools": "^4"
     },
     "autoload": {
         "psr-4": {
