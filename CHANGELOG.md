@@ -1,6 +1,13 @@
 # Change Log
 
 
+## [2.1.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.1.0) (2024-06-05)
+
+### Features:
+* New Gallery module for displaying image thumbnails as a grid
+* New `colymba/gridfield-bulk-editing-tools` requirement to "Bulk Upload" images as `DataObjects`
+
+
 ## [2.0.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.0.0) (2024-06-02)
 
 ### Features:
