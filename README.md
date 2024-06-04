@@ -8,12 +8,13 @@ Provides essential, foundational elements for building modular pages using Silve
 * Silverstripe CMS 5.2 or higher
 * [Silverstripe Elemental](https://github.com/silverstripe/silverstripe-elemental)
 * [Silverstripe Grid Field Extensions Module](https://github.com/symbiote/silverstripe-gridfieldextensions)
+* [GridField Bulk Editing Tools](colymba/gridfield-bulk-editing-tools)
 * [Silverstripe link module](https://github.com/silverstripe/silverstripe-linkfield)
 
 
 ## Installation
 
-Install using Composer:
+To install Fundamental (with requirements included) use Composer:
 
 ```sh
 composer require minimalic/silverstripe-fundamental
@@ -32,6 +33,7 @@ Or, use your base URL with:
 - Hero Banner Block (`ModuleHeroBanner`) - Displays a hero banner featuring text overlayed on an image
 - Hero Split Block (`ModuleHeroSplit`) - Displays a hero split with image and text side-by-side. Allows switching the order
 - Slideshow (`ModuleSlideshow`) - Image slider/carousel (Bootstrap compatible)
+- Gallery (`ModuleGallery`) - Image thumbnails as a grid
 
 
 ## Customization
@@ -75,13 +77,13 @@ The available options for `image_directory_sub_struct` are:
 - `element` (current element title)
 - `class/element` (current element class/title)
 
-The "Slideshow" module provide one additional `image_directory_name` option:
+The "Slideshow" and "Gallery" modules provide one additional `image_directory_sub_struct` option:
 - `parent/element` (parent page title/current element title)
 
 
 ## Global configuration
 
-### Set image resize quality
+### Set image resize quality (Optional)
 
 Set the global image quality inside your config (e.g. `mysite.yml`) and enable forced resampling for not-resized images (optional):
 
