@@ -3,6 +3,7 @@
 namespace minimalic\Fundamental\Objects;
 
 use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\CheckboxField;
@@ -69,8 +70,9 @@ class ObjectSlide extends DataObject
     ];
 
     private static $summary_fields = [
-        'Enabled.Nice' => 'Enabled',
-        'Image.CMSThumbnail' => 'Image',
+        // 'Enabled.Nice' => 'Enabled',
+        'GridFieldThumbnail' => 'Image',
+        // 'Image.CMSThumbnail' => 'Image',
         // 'Image.StripThumbnail' => 'Image',
         'Title',
     ];
@@ -113,6 +115,44 @@ class ObjectSlide extends DataObject
         ]);
 
         return $fields;
+    }
+
+    /**
+     * Generate High DPI Thumbnail for GridField preview
+     * Add a "disabled" badge to disabled GridField items
+     * Hack the CSS to display disabled GridField items with gray background
+     *
+     * @return DBHTMLText
+     */
+    public function GridFieldThumbnail()
+    {
+        $imageSource = $this->Image()->FitMax(300,300);
+        $imageElement = '<div class="p-4"></div>';
+        if ($imageSource) {
+            $imageRetinaWidth = $imageSource->getWidth() / 2;
+            $imageRetinaHeight = $imageSource->getHeight() / 2;
+            $imageURL = $imageSource->getURL();
+            $imageStyle = "";
+            if (!$this->Enabled) {
+                $imageStyle = "opacity: 0.5;";
+            }
+            $imageElement = '<img class="d-block" width="' . $imageRetinaWidth . '" height="' . $imageRetinaHeight . '" alt="' . $imageSource->getTitle() . '" src="' . $imageURL . '" style="' . $imageStyle . '" loading="lazy">';
+        }
+
+        if (!$this->Enabled) {
+            $imageHTML = DBHTMLText::create()->setValue('
+                <div class="position-relative item-disabled">
+                    ' . $imageElement . '
+                    <div class="position-absolute m-2" style="top: 0; left: 0;">
+                        <span class="badge badge-pill badge-warning p-2">disabled</span>
+                    </div>
+                </div>
+            ');
+        } else {
+            $imageHTML = DBHTMLText::create()->setValue($imageElement);
+        }
+
+        return $imageHTML;
     }
 
     /**
