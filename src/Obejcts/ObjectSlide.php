@@ -22,7 +22,7 @@ class ObjectSlide extends DataObject
 
     private static $description = 'Slide for a slideshow';
 
-    private static $table_name = 'ModularObjectSlide';
+    private static $table_name = 'ModularObject_Slide';
 
     /**
      * Main Directory for uploaded Image, empty String for none
