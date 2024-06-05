@@ -134,14 +134,17 @@ class ObjectGalleryImage extends DataObject
     public function GridFieldThumbnail()
     {
         $imageSource = $this->Image()->FitMax(300,300);
-        $imageRetinaWidth = $imageSource->getWidth() / 2;
-        $imageRetinaHeight = $imageSource->getHeight() / 2;
-        $imageURL = $imageSource->getURL();
-        $imageStyle = "";
-        if (!$this->Enabled) {
-            $imageStyle = "opacity: 0.5;";
+        $imageElement = '<div class="p-4"></div>';
+        if ($imageSource) {
+            $imageRetinaWidth = $imageSource->getWidth() / 2;
+            $imageRetinaHeight = $imageSource->getHeight() / 2;
+            $imageURL = $imageSource->getURL();
+            $imageStyle = "";
+            if (!$this->Enabled) {
+                $imageStyle = "opacity: 0.5;";
+            }
+            $imageElement = '<img class="d-block" width="' . $imageRetinaWidth . '" height="' . $imageRetinaHeight . '" alt="' . $imageSource->getTitle() . '" src="' . $imageURL . '" style="' . $imageStyle . '" loading="lazy">';
         }
-        $imageElement = '<img class="d-block" width="' . $imageRetinaWidth . '" height="' . $imageRetinaHeight . '" alt="' . $imageSource->getTitle() . '" src="' . $imageURL . '" style="' . $imageStyle . '" loading="lazy">';
 
         if (!$this->Enabled) {
             $imageHTML = DBHTMLText::create()->setValue('
@@ -151,17 +154,6 @@ class ObjectGalleryImage extends DataObject
                         <span class="badge badge-pill badge-warning p-2">disabled</span>
                     </div>
                 </div>
-                <style>
-                    /* .table tbody tr.ss-gridfield-item:has(.item-disabled) { */
-                    .table tbody tr:has(.item-disabled),
-                    .table tbody tr.even:has(.item-disabled) {
-                        background-color: #eee;
-                    }
-                    .table tbody tr:has(.item-disabled):hover,
-                    .table tbody tr.even:has(.item-disabled):hover {
-                        background-color: #e0e4e7;
-                    }
-                </style>
             ');
         } else {
             $imageHTML = DBHTMLText::create()->setValue($imageElement);
