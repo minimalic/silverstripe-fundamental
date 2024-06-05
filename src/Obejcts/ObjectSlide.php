@@ -98,9 +98,11 @@ class ObjectSlide extends DataObject
         $fieldEnabled = CheckboxField::create('Enabled', _t(__CLASS__ . '.Enabled', 'Enable slide'));
 
         $fieldImage = UploadField::create('Image');
-        $imageUploadPath = $this->generateUploadDirectory();
-        if (!empty($imageUploadPath) && $imageUploadPath != '/') {
-            $fieldImage->setFolderName($imageUploadPath);
+        if ($this->Parent()) {
+            $imageUploadPath = $this->Parent()->generateUploadDirectory();
+            if (!empty($imageUploadPath) && $imageUploadPath != '/') {
+                $fieldImage->setFolderName($imageUploadPath);
+            }
         }
 
         $fieldLinks = MultiLinkField::create('Links', _t(__CLASS__ . '.Links', 'Links'));
