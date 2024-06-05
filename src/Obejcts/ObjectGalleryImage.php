@@ -44,11 +44,7 @@ class ObjectGalleryImage extends DataObject
     ];
 
     private static $summary_fields = [
-        // 'Enabled.Nice' => 'Enabled',
-        // 'ImageEnabled' => '',
-        // 'Image.CMSThumbnail' => 'Image',
         'GridFieldThumbnail' => 'Image',
-        // 'Image.StripThumbnail' => 'Image',
         'Title',
     ];
 
