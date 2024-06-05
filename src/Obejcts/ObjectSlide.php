@@ -25,21 +25,6 @@ class ObjectSlide extends DataObject
 
     private static $table_name = 'ModularObject_Slide';
 
-    /**
-     * Main Directory for uploaded Image, empty String for none
-     *
-     * @string
-     */
-    private static $image_directory_name = 'images';
-
-    /**
-     * Subdirectory for uploaded Image. Available options:
-     * 'parent', 'class/parent', 'element', 'class/element', 'parent/element', '' (empty: disabled)
-     *
-     * @string
-     */
-    private static $image_directory_sub_struct = 'parent/element';
-
     private static $db = [
         'Sort' => 'Int',
         'Title' => 'Varchar',
@@ -169,49 +154,6 @@ class ObjectSlide extends DataObject
         }
 
         return null;
-    }
-
-    /**
-     * Generate image upload directory based on config
-     *
-     * @return string
-     */
-    public function generateUploadDirectory()
-    {
-        $filter = URLSegmentFilter::create();
-        $uploadPath = '';
-        $configuredDirectory = $this->config()->get('image_directory_name');
-        $configuredSubDirectory = $this->config()->get('image_directory_sub_struct');
-        $parentPage = $this->Parent()->Parent()->getOwnerPage();
-
-        if (!empty($configuredDirectory)) {
-            $normalizedDirectory = $filter->filter($configuredDirectory);
-            $uploadPath = $normalizedDirectory . '/';
-        }
-
-        if ($configuredSubDirectory == 'class/parent' && $parentPage && $parentPage->exists()) {
-            $className = basename(str_replace('\\', '/', $parentPage->ClassName));
-            $classSegment = $filter->filter($className);
-            $titleSegment = $filter->filter($parentPage->Title);
-            $uploadPath .=  $classSegment . '/' . $titleSegment . '/';
-        } elseif ($configuredSubDirectory == 'parent' && $parentPage && $parentPage->exists()) {
-            $titleSegment = $filter->filter($parentPage->Title);
-            $uploadPath .=  $titleSegment . '/';
-        } elseif ($configuredSubDirectory == 'class/element' && !empty($this->Parent()->Title)) {
-            $className = basename(str_replace('\\', '/', $this->ClassName));
-            $classSegment = $filter->filter($className);
-            $titleSegment = $filter->filter($this->Parent()->Title);
-            $uploadPath .=  $classSegment . '/' . $titleSegment . '/';
-        } elseif ($configuredSubDirectory == 'element' && !empty($this->Parent()->Title)) {
-            $titleSegment = $filter->filter($this->Parent()->Title);
-            $uploadPath .=  $titleSegment . '/';
-        } elseif ($configuredSubDirectory == 'parent/element' && $parentPage && $parentPage->exists() && !empty($this->Parent()->Title)) {
-            $parentPageSegment = $filter->filter($parentPage->Title);
-            $titleSegment = $filter->filter($this->Parent()->Title);
-            $uploadPath .=  $parentPageSegment . '/' . $titleSegment . '/';
-        }
-
-        return $uploadPath;
     }
 
     /**
