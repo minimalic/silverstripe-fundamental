@@ -89,42 +89,6 @@ class ObjectGalleryImage extends DataObject
     }
 
     /**
-     * Generate an "Enabled" check mark for the GridField preview
-     * Hack the CSS to display GridField item with gray background if disabled
-     *
-     * @return DBHTMLText
-     */
-    public function ImageEnabled()
-    {
-        if ($this->Enabled) {
-            $enabledIndicator = DBHTMLText::create()->setValue('
-                <div class="item-enabled" style="display: none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
-                        <path d="M2.755,15.982l2.263,-2.262l7.333,7.333l14.631,-14.631l2.263,2.262l-16.894,16.894l-9.596,-9.596Z" style="fill:#000000;"/>
-                    </svg>
-                </div>
-            ');
-        } else {
-            $enabledIndicator = DBHTMLText::create()->setValue('
-
-                <style>
-                    /* .table tbody tr.ss-gridfield-item:has(.item-disabled) { */
-                    .table tbody tr:has(.item-disabled),
-                    .table tbody tr.even:has(.item-disabled) {
-                        background-color: #eee;
-                    }
-                    .table tbody tr:has(.item-disabled):hover,
-                    .table tbody tr.even:has(.item-disabled):hover {
-                        background-color: #e0e4e7;
-                    }
-                </style>
-            ');
-        }
-
-        return $enabledIndicator;
-    }
-
-    /**
      * Generate High DPI Thumbnail for GridField preview
      * Add a "disabled" badge to disabled GridField items
      * Hack the CSS to display disabled GridField items with gray background
