@@ -59,10 +59,10 @@ minimalic/Fundamental/Modules/
 Alternatively copy the entire `vendor/minimalic/silverstripe-fundamental/templates/` directory to your `templates/` directory and customize all template overrides.
 
 
-### Custom options for image upload directory
+### Options for custom image upload directory
 
 By default images (modules: "Image Block", "Hero Banner Block"...) will be uploaded to `images/parent-class/parent-title`, where `parent` is the page/object holding the module.
-To change this behavior add to your config (e.g. inside `mysite.yml`):
+To change this behavior add this to your config (e.g. inside `mysite.yml`):
 
 ```yaml
 minimalic\Fundamental\Modules\ModuleImage:
@@ -79,6 +79,12 @@ The available options for `image_directory_sub_struct` are:
 
 The "Slideshow" and "Gallery" modules provide one additional `image_directory_sub_struct` option:
 - `parent/element` (parent page title/current element title)
+
+```yaml
+minimalic\Fundamental\Modules\ModuleGallery:
+  image_directory_name: 'images'
+  image_directory_sub_struct: 'parent/element'
+```
 
 
 ## Global configuration
