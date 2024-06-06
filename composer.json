@@ -17,8 +17,10 @@
         "silverstripe/cms": "^5",
         "dnadesign/silverstripe-elemental": "^5",
         "symbiote/silverstripe-gridfieldextensions": "^4",
-        "silverstripe/linkfield": "^4",
-        "colymba/gridfield-bulk-editing-tools": "^4"
+        "silverstripe/linkfield": "^4"
+    },
+    "suggest": {
+        "colymba/gridfield-bulk-editing-tools": "Adds support for bulk upload for slideshow and gallery modules"
     },
     "autoload": {
         "psr-4": {
