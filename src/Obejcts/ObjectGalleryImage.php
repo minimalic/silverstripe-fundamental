@@ -98,9 +98,9 @@ class ObjectGalleryImage extends DataObject
     }
 
     /**
-     * Generate High DPI Thumbnail for GridField preview
-     * Add a "disabled" badge to disabled GridField items
-     * Hack the CSS to display disabled GridField items with gray background
+     * Generates High DPI Thumbnail for GridField preview.
+     * Adds a "disabled" badge to disabled GridField items.
+     * Adds a "not published" badge to items with draft image.
      *
      * @return DBHTMLText
      */
@@ -108,6 +108,7 @@ class ObjectGalleryImage extends DataObject
     {
         $imageSource = $this->Image()->FitMax(300,300);
         $imageElement = '<div class="p-4"></div>';
+        $badges = '';
         if ($imageSource) {
             $imageRetinaWidth = $imageSource->getWidth() / 2;
             $imageRetinaHeight = $imageSource->getHeight() / 2;
@@ -119,18 +120,22 @@ class ObjectGalleryImage extends DataObject
             $imageElement = '<img class="d-block" width="' . $imageRetinaWidth . '" height="' . $imageRetinaHeight . '" alt="' . $imageSource->getTitle() . '" src="' . $imageURL . '" style="' . $imageStyle . '" loading="lazy">';
         }
 
+        if ($this->Image()->isOnDraftOnly() || $this->Image()->isModifiedOnDraft()) {
+            $badges .= '<span class="badge badge-pill badge-info p-2 mb-2">not published</span><br>';
+        }
+
         if (!$this->Enabled) {
-            $imageHTML = DBHTMLText::create()->setValue('
-                <div class="position-relative item-disabled">
+            $badges .= '<span class="badge badge-pill badge-warning p-2 mb-2">disabled</span><br>';
+        }
+
+        $imageHTML = DBHTMLText::create()->setValue('
+                <div class="position-relative overflow-hidden" style="min-width: 100px; min-height: 100px;">
                     ' . $imageElement . '
                     <div class="position-absolute m-2" style="top: 0; left: 0;">
-                        <span class="badge badge-pill badge-warning p-2">disabled</span>
+                        ' . $badges . '
                     </div>
                 </div>
             ');
-        } else {
-            $imageHTML = DBHTMLText::create()->setValue($imageElement);
-        }
 
         return $imageHTML;
     }
