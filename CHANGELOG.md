@@ -1,6 +1,23 @@
 # Change Log
 
 
+## [2.2.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.2.0) (2024-06-06)
+
+### Before update:
+The table `ModularObjectSlide` was renamed to `ModularObject_Slide` for consistency with other objects - there is no migration script. Rename the table manually using SQL:
+```sql
+RENAME TABLE "ModularObjectSlide" TO "ModularObject_Slide"
+```
+
+### Features:
+* Slideshow module now supports uploading multiple images at once (bulk upload)
+* Draft badge for unpublished images (Gallery and Slideshow modules)
+
+### Fixes:
+* Fixed crash while trying to preview items with no images (Gallery module)
+* Fixed looping through items with unpublished images (Gallery and Slideshow modules)
+
+
 ## [2.1.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.1.0) (2024-06-05)
 
 ### Features:
