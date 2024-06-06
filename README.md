@@ -8,8 +8,14 @@ Provides essential, foundational elements for building modular pages using Silve
 * Silverstripe CMS 5.2 or higher
 * [Silverstripe Elemental](https://github.com/silverstripe/silverstripe-elemental)
 * [Silverstripe Grid Field Extensions Module](https://github.com/symbiote/silverstripe-gridfieldextensions)
-* [GridField Bulk Editing Tools](https://github.com/colymba/GridFieldBulkEditingTools)
 * [Silverstripe link module](https://github.com/silverstripe/silverstripe-linkfield)
+
+
+## Recommended Extensions
+
+* [GridField Bulk Editing Tools](https://github.com/colymba/GridFieldBulkEditingTools)
+
+The Fundamental extension is optimized for the "Bulk Upload" feature provided by GridField Bulk Editing Tools.
 
 
 ## Installation
