@@ -1,6 +1,12 @@
 # Change Log
 
 
+## [2.2.1](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.2.1) (2024-06-06)
+
+### Fixes:
+* The `colymba/gridfield-bulk-editing-tools` is no more required, but recommended
+
+
 ## [2.2.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.2.0) (2024-06-06)
 
 ### Before update:
