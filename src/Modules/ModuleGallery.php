@@ -177,15 +177,19 @@ class ModuleGallery extends BaseElement
     }
 
     /**
-     * Return Images only when enabled and image uploaded
+     * Retrieves images that are enabled and have an associated image file,
+     * while ensuring the current user has permission to view the image.
      *
-     * @return Images
+     * @return DataList
      */
     public function FilteredImages()
     {
-        $Images = $this->Images()->filter(['Enabled' => true, 'ImageID:not' => 0]);
+        $images = $this->Images()->filter(['Enabled' => true])
+            ->filterByCallback(function ($image) {
+                return $image->canViewImage();
+            });
 
-        return $Images;
+        return $images;
     }
 
     public function getSummary(): string

@@ -85,6 +85,19 @@ class ObjectGalleryImage extends DataObject
     }
 
     /**
+     * Determines if the image can be viewed by the current user.
+     *
+     * @return bool True if the image can be viewed by the current user, false otherwise.
+     */
+    public function canViewImage() {
+        $image = $this->Image();
+        if (!$image || !$image->exists()) {
+            return false;
+        }
+        return $image->canView();
+    }
+
+    /**
      * Generate High DPI Thumbnail for GridField preview
      * Add a "disabled" badge to disabled GridField items
      * Hack the CSS to display disabled GridField items with gray background

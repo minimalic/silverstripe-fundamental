@@ -217,13 +217,17 @@ class ModuleSlideshow extends BaseElement
     }
 
     /**
-     * Return Slides only with Image and Enabled
+     * Retrieves slides that are enabled and have an associated image file,
+     * while ensuring the current user has permission to view the image.
      *
-     * @return Slides
+     * @return DataList
      */
     public function FilteredSlides()
     {
-        $slides = $this->Slides()->filter(['Enabled' => true, 'ImageID:not' => 0]);
+        $slides = $this->Slides()->filter(['Enabled' => true])
+            ->filterByCallback(function ($slide) {
+                return $slide->canViewImage();
+            });
 
         return $slides;
     }
