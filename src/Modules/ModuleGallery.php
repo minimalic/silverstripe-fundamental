@@ -8,6 +8,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldPageCount;
 use SilverStripe\Forms\GridField\GridFieldToolbarHeader;
 use SilverStripe\Forms\GridField\GridFieldFilterHeader;
@@ -16,7 +17,6 @@ use SilverStripe\View\Parsers\URLSegmentFilter;
 use DNADesign\Elemental\Models\BaseElement;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Colymba\BulkUpload\BulkUploader;
-use Bummzack\SortableFile\Forms\SortableUploadField;
 use minimalic\Fundamental\Objects\ObjectGalleryImage;
 
 class ModuleGallery extends BaseElement
@@ -97,6 +97,7 @@ class ModuleGallery extends BaseElement
         $gridFieldImagesConfig->addComponent(GridFieldOrderableRows::create());
         $gridFieldImagesConfig->removeComponentsByType([GridFieldPageCount::class, GridFieldToolbarHeader::class, GridFieldFilterHeader::class]);
         if (class_exists(BulkUploader::class)) {
+            $gridFieldImagesConfig->removeComponentsByType([GridFieldAddNewButton::class]);
             $gridFieldImagesConfig->addComponent(new BulkUploader());
             $gridFieldImagesConfig->getComponentByType(BulkUploader::class)
                 ->setUfSetup('setFolderName', $this->generateUploadDirectory());
