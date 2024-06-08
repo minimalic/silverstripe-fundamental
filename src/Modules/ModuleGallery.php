@@ -57,19 +57,8 @@ class ModuleGallery extends BaseElement
         'Images' => ObjectGalleryImage::class,
     ];
 
-//     private static $many_many = [
-//         'GImages' => Image::class,
-//     ];
-//
-//     private static $many_many_extraFields = [
-//         'GImages' => [
-//             'SortOrder' => 'Int',
-//         ],
-//     ];
-
     private static $owns = [
         'Images',
-        // 'GImages',
     ];
 
     private static $defaults = [
@@ -104,9 +93,6 @@ class ModuleGallery extends BaseElement
         }
         $gridFieldImages = GridField::create('Images', 'Images', $this->Images());
         $gridFieldImages->setConfig($gridFieldImagesConfig);
-
-        // $fieldGImages = SortableUploadField::create('GImages', 'G Images');
-        // $fieldGImages->setFolderName('images/backgrounds/');
 
         $fields->addFieldsToTab('Root.Main', [
             $gridFieldImages,
