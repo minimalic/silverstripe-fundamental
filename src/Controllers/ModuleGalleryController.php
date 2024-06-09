@@ -17,7 +17,7 @@ class ModuleGalleryController extends ElementController
             Requirements::css('minimalic/silverstripe-fundamental: client/dist/js/venobox/venobox.min.css');
 
             $selector = "selector: '.venobox-" . $this->getAnchor() . "',";
-            $options = "fitView: true, spinner: 'wave', overlayColor: 'rgba(255,255,255,1.0)', toolsColor: '#000000',";
+            $options = "fitView: true, spinner: 'wave', overlayColor: 'rgba(255,255,255,1.0)', titlePosition: 'bottom', toolsBackground: '#ffffff', toolsColor: '#000000',";
             Requirements::customScript(<<<JS
                 new VenoBox({
                     $selector
