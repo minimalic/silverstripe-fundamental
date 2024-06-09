@@ -108,7 +108,7 @@ class ModuleGallery extends BaseElement
 
         $fieldFullWidth = CheckboxField::create('FullWidth', _t(__CLASS__ . '.FullWidth', 'Display at Full Page Width'));
 
-        $fieldShowThumbnailGaps = CheckboxField::create('ShowThumbnailGaps', _t(__CLASS__ . '.ShowThumbnailGaps', 'Display a gap between thumbnails'))->addExtraClass('d-block');
+        $fieldShowThumbnailGaps = CheckboxField::create('ShowThumbnailGaps', _t(__CLASS__ . '.ShowThumbnailGaps', 'Display a gap between images'))->addExtraClass('d-block');
 
         $fieldShowThumbnailTitle = CheckboxField::create('ShowThumbnailTitle', _t(__CLASS__ . '.ShowThumbnailTitle', 'Display title (if available)'))->addExtraClass('d-block');
 
