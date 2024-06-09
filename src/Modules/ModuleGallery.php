@@ -70,13 +70,14 @@ class ModuleGallery extends BaseElement
         'ShowThumbnailGaps' => true,
         'ShowThumbnailTitle' => false,
         'LightboxEnabled' => true,
-        'ShowLightboxTitle' => false,
+        'ShowLightboxTitle' => true,
     ];
 
     public function populateDefaults()
     {
         $this->ShowThumbnailGaps = true;
         $this->LightboxEnabled = true;
+        $this->ShowLightboxTitle = true;
         parent::populateDefaults();
     }
 
@@ -86,7 +87,7 @@ class ModuleGallery extends BaseElement
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName(['Images']);
+        $fields->removeByName(['Images', 'ShowThumbnailGaps', 'ShowThumbnailTitle', 'LightboxEnabled', 'ShowLightboxTitle']);
 
         $gridFieldImagesConfig = GridFieldConfig_RecordEditor::create();
         $gridFieldImagesConfig->addComponent(GridFieldOrderableRows::create());
@@ -107,20 +108,28 @@ class ModuleGallery extends BaseElement
 
         $fieldFullWidth = CheckboxField::create('FullWidth', _t(__CLASS__ . '.FullWidth', 'Display at Full Page Width'));
 
-        $fieldShowThumbnailGaps = CheckboxField::create('ShowThumbnailGaps', _t(__CLASS__ . '.ShowThumbnailGaps', 'Display a gap between thumbnails'));
+        $fieldShowThumbnailGaps = CheckboxField::create('ShowThumbnailGaps', _t(__CLASS__ . '.ShowThumbnailGaps', 'Display a gap between thumbnails'))->addExtraClass('d-block');
 
-        $fieldShowThumbnailTitle = CheckboxField::create('ShowThumbnailTitle', _t(__CLASS__ . '.ShowThumbnailTitle', 'Display image title at thumbnail'));
+        $fieldShowThumbnailTitle = CheckboxField::create('ShowThumbnailTitle', _t(__CLASS__ . '.ShowThumbnailTitle', 'Display title (if available)'))->addExtraClass('d-block');
 
-        $fieldLightboxEnabled = CheckboxField::create('LightboxEnabled', _t(__CLASS__ . '.LightboxEnabled', 'Enable image zoom (Lightbox)'));
+        $fieldThumbnailView = FieldGroup::create(
+            $fieldShowThumbnailGaps,
+            $fieldShowThumbnailTitle
+        )->setTitle(_t(__CLASS__ . '.ThumbnailView', 'Thumbnail view'));
 
-        $fieldShowLightboxTitle = CheckboxField::create('ShowLightboxTitle', _t(__CLASS__ . '.ShowLightboxTitle', 'Display image title on zoom'));
+        $fieldLightboxEnabled = CheckboxField::create('LightboxEnabled', _t(__CLASS__ . '.LightboxEnabled', 'Enable Lightbox (image zoom)'))->addExtraClass('d-block');
+
+        $fieldShowLightboxTitle = CheckboxField::create('ShowLightboxTitle', _t(__CLASS__ . '.ShowLightboxTitle', 'Display title (if available)'))->addExtraClass('d-block');
+
+        $fieldLightboxOptions = FieldGroup::create(
+            $fieldLightboxEnabled,
+            $fieldShowLightboxTitle
+        )->setTitle(_t(__CLASS__ . '.LightboxOptions', 'Lightbox options'));
 
         $fields->addFieldsToTab('Root.Settings', [
             $fieldFullWidth,
-            $fieldShowThumbnailGaps,
-            $fieldShowThumbnailTitle,
-            $fieldLightboxEnabled,
-            $fieldShowLightboxTitle,
+            $fieldThumbnailView,
+            $fieldLightboxOptions,
         ]);
 
         return $fields;
