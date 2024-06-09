@@ -16,9 +16,13 @@
             <% loop FilteredImages %>
             <div class="col<% if $Up.ShowThumbnailGaps %> mb-4<% end_if %>">
                 <div class="module-gallery__item">
-                    <a class="module-gallery__link" href="{$ResizedImage.URL}">
+                    <% if $Up.LightboxEnabled %>
+                    <a class="module-gallery__link venobox-{$Up.Anchor}" data-gall="gallery-{$Up.Anchor}" href="{$ResizedImage.URL}">
                         <img src="{$Image.FillMax(600,600).URL}" class="d-block w-100 module-gallery__image" alt="{$Image.Title}">
                     </a>
+                    <% else %>
+                    <img src="{$Image.FillMax(600,600).URL}" class="d-block w-100 module-gallery__image" alt="{$Image.Title}">
+                    <% end_if %>
                     <% if $Up.ShowThumbnailTitle %>
                     <div class="module-gallery__caption">
                         <% if $Title %><p>$Title</p><% end_if %>

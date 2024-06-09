@@ -18,10 +18,13 @@ use DNADesign\Elemental\Models\BaseElement;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Colymba\BulkUpload\BulkUploader;
 use minimalic\Fundamental\Objects\ObjectGalleryImage;
+use minimalic\Fundamental\Controllers\ModuleGalleryController;
 
 class ModuleGallery extends BaseElement
 {
     private static $icon = 'font-icon-thumbnails';
+
+    private static $controller_class = ModuleGalleryController::class;
 
     private static $singular_name = 'Gallery Block';
 
@@ -50,6 +53,7 @@ class ModuleGallery extends BaseElement
         'FullWidth' => 'Boolean',
         'ShowThumbnailGaps' => 'Boolean',
         'ShowThumbnailTitle' => 'Boolean',
+        'LightboxEnabled' => 'Boolean',
         'ShowZoomTitle' => 'Boolean',
     ];
 
@@ -65,12 +69,14 @@ class ModuleGallery extends BaseElement
         'FullWidth' => false,
         'ShowThumbnailGaps' => true,
         'ShowThumbnailTitle' => false,
+        'LightboxEnabled' => true,
         'ShowZoomTitle' => false,
     ];
 
     public function populateDefaults()
     {
         $this->ShowThumbnailGaps = true;
+        $this->LightboxEnabled = true;
         parent::populateDefaults();
     }
 
@@ -101,9 +107,11 @@ class ModuleGallery extends BaseElement
 
         $fieldFullWidth = CheckboxField::create('FullWidth', _t(__CLASS__ . '.FullWidth', 'Display at Full Page Width'));
 
-        $fieldShowThumbnailGaps = CheckboxField::create('ShowThumbnailGaps', _t(__CLASS__ . '.ShowThumbnailGaps', 'Display a Gaps between thumbnails'));
+        $fieldShowThumbnailGaps = CheckboxField::create('ShowThumbnailGaps', _t(__CLASS__ . '.ShowThumbnailGaps', 'Display a gap between thumbnails'));
 
         $fieldShowThumbnailTitle = CheckboxField::create('ShowThumbnailTitle', _t(__CLASS__ . '.ShowThumbnailTitle', 'Display image title at thumbnail'));
+
+        $fieldLightboxEnabled = CheckboxField::create('LightboxEnabled', _t(__CLASS__ . '.LightboxEnabled', 'Enable image zoom (Lightbox)'));
 
         $fieldShowZoomTitle = CheckboxField::create('ShowZoomTitle', _t(__CLASS__ . '.ShowZoomTitle', 'Display image title on zoom'));
 
@@ -111,6 +119,7 @@ class ModuleGallery extends BaseElement
             $fieldFullWidth,
             $fieldShowThumbnailGaps,
             $fieldShowThumbnailTitle,
+            $fieldLightboxEnabled,
             $fieldShowZoomTitle,
         ]);
 
