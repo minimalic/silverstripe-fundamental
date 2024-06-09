@@ -27,6 +27,11 @@
             "minimalic\\Fundamental\\": "src/"
         }
     },
+    "extra": {
+        "expose": [
+            "client/dist"
+        ]
+    },
     "license": "BSD-3-Clause",
     "minimum-stability": "dev",
     "prefer-stable": true
