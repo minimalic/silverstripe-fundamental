@@ -54,7 +54,7 @@ class ModuleGallery extends BaseElement
         'ShowThumbnailGaps' => 'Boolean',
         'ShowThumbnailTitle' => 'Boolean',
         'LightboxEnabled' => 'Boolean',
-        'ShowZoomTitle' => 'Boolean',
+        'ShowLightboxTitle' => 'Boolean',
     ];
 
     private static $has_many = [
@@ -70,7 +70,7 @@ class ModuleGallery extends BaseElement
         'ShowThumbnailGaps' => true,
         'ShowThumbnailTitle' => false,
         'LightboxEnabled' => true,
-        'ShowZoomTitle' => false,
+        'ShowLightboxTitle' => false,
     ];
 
     public function populateDefaults()
@@ -113,14 +113,14 @@ class ModuleGallery extends BaseElement
 
         $fieldLightboxEnabled = CheckboxField::create('LightboxEnabled', _t(__CLASS__ . '.LightboxEnabled', 'Enable image zoom (Lightbox)'));
 
-        $fieldShowZoomTitle = CheckboxField::create('ShowZoomTitle', _t(__CLASS__ . '.ShowZoomTitle', 'Display image title on zoom'));
+        $fieldShowLightboxTitle = CheckboxField::create('ShowLightboxTitle', _t(__CLASS__ . '.ShowLightboxTitle', 'Display image title on zoom'));
 
         $fields->addFieldsToTab('Root.Settings', [
             $fieldFullWidth,
             $fieldShowThumbnailGaps,
             $fieldShowThumbnailTitle,
             $fieldLightboxEnabled,
-            $fieldShowZoomTitle,
+            $fieldShowLightboxTitle,
         ]);
 
         return $fields;
