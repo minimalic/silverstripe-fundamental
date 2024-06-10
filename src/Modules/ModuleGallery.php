@@ -103,7 +103,6 @@ class ModuleGallery extends BaseElement
 
         $fields->addFieldsToTab('Root.Main', [
             $gridFieldImages,
-            // $fieldGImages,
         ]);
 
         $fieldFullWidth = CheckboxField::create('FullWidth', _t(__CLASS__ . '.FullWidth', 'Display at Full Page Width'));
