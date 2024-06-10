@@ -1,6 +1,14 @@
 # Change Log
 
 
+## [2.3.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.3.0) (2024-06-10)
+
+### Features:
+* Gallery module now uses [VenoBox](https://github.com/nicolafranchini/VenoBox) as a built-in lightbox plugin
+* Lightbox is enabled by default (found under the "Settings" tab)
+* CSS/JS files will load only if the lightbox is enabled
+
+
 ## [2.2.1](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.2.1) (2024-06-06)
 
 ### Fixes:
