@@ -1,4 +1,25 @@
 en:
+  minimalic\Fundamental\Modules\ModuleGallery:
+    FullWidth: 'Display at Full Page Width'
+    LightboxEnabled: 'Enable Lightbox (image zoom)'
+    LightboxOptions: 'Lightbox options'
+    PLURALNAME: 'Gallery Blocks'
+    PLURALS:
+      one: 'A Gallery Block'
+      other: '{count} Gallery Blocks'
+    SINGULARNAME: 'Gallery Block'
+    ShowLightboxTitle: 'Display title (if available)'
+    ShowThumbnailGaps: 'Display a gap between images'
+    ShowThumbnailTitle: 'Display title (if available)'
+    Summary: 'Displays images as gallery.'
+    ThumbnailView: 'Thumbnail view'
+    Type: Gallery
+    db_FullWidth: 'Full width'
+    db_LightboxEnabled: 'Lightbox enabled'
+    db_ShowLightboxTitle: 'Show lightbox title'
+    db_ShowThumbnailGaps: 'Show thumbnail gaps'
+    db_ShowThumbnailTitle: 'Show thumbnail title'
+    has_many_Images: Images
   minimalic\Fundamental\Modules\ModuleHeroBanner:
     DisplayHeight: 'Banner Display Height'
     Height100vh: '100% of Viewport Height'
@@ -85,6 +106,18 @@ en:
     db_SlideCrossfade: 'Slide crossfade'
     db_Width: Width
     has_many_Slides: Slides
+  minimalic\Fundamental\Objects\ObjectGalleryImage:
+    Enabled: 'Enable Image'
+    PLURALNAME: Images
+    PLURALS:
+      one: 'An Image'
+      other: '{count} Images'
+    SINGULARNAME: Image
+    db_Enabled: Enabled
+    db_Sort: Sort
+    db_Title: Title
+    has_one_Image: Image
+    has_one_ModuleGallery: 'Module gallery'
   minimalic\Fundamental\Objects\ObjectSlide:
     Enabled: 'Enable slide'
     Links: Links
