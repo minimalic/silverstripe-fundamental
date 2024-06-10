@@ -11,13 +11,6 @@ Provides essential, foundational elements for building modular pages using Silve
 * [Silverstripe link module](https://github.com/silverstripe/silverstripe-linkfield)
 
 
-## Recommended Extensions
-
-* [GridField Bulk Editing Tools](https://github.com/colymba/GridFieldBulkEditingTools)
-
-The Fundamental extension is optimized for the "Bulk Upload" feature provided by GridField Bulk Editing Tools.
-
-
 ## Installation
 
 To install Fundamental (with requirements included) use Composer:
@@ -31,6 +24,18 @@ Refresh your database by navigating to your website's root directory in the shel
 
 Or, use your base URL with:
 `/dev/build?flush=all`
+
+
+## Recommended Extensions
+
+* [GridField Bulk Editing Tools](https://github.com/colymba/GridFieldBulkEditingTools)
+
+The Fundamental extension is optimized for the "Bulk Upload" feature provided by GridField Bulk Editing Tools.
+
+Install using composer (optional):
+```sh
+composer require colymba/gridfield-bulk-editing-tools
+```
 
 
 ## Available Modules
