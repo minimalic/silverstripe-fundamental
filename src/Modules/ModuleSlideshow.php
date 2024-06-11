@@ -78,6 +78,14 @@ class ModuleSlideshow extends BaseElement
         'Height' => 0,
     ];
 
+    private static array $cascade_deletes = [
+        'Slides',
+    ];
+
+    private static array $cascade_duplicates = [
+        'Slides',
+    ];
+
     public function populateDefaults()
     {
         $this->Autoplay = true;

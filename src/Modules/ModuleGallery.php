@@ -73,6 +73,14 @@ class ModuleGallery extends BaseElement
         'ShowLightboxTitle' => true,
     ];
 
+    private static array $cascade_deletes = [
+        'Images',
+    ];
+
+    private static array $cascade_duplicates = [
+        'Images',
+    ];
+
     public function populateDefaults()
     {
         $this->ShowThumbnailGaps = true;
