@@ -1,6 +1,13 @@
 # Change Log
 
 
+## [2.3.1](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.3.1) (2024-06-12)
+
+### Fixes:
+* Localization support for the (optional) Fluent extension
+* Added cascading deletion/duplication on relationships between module and object
+
+
 ## [2.3.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.3.0) (2024-06-11)
 
 ### Features:
