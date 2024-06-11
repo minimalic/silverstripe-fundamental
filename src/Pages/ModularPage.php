@@ -2,6 +2,7 @@
 
 namespace minimalic\Fundamental\Pages;
 
+use TractorCow\Fluent\Model\Locale;
 use Page;
 
 class ModularPage extends Page
@@ -17,4 +18,21 @@ class ModularPage extends Page
     private static $field_include = [
         'ElementalAreaID',
     ];
+
+    public function onBeforeWrite()
+    {
+        parent::onBeforeWrite();
+
+        // Create copy of the ElementalArea when content is being localized by Fluent.
+        if (class_exists(Locale::class)) {
+            if (!$this->isDraftedInLocale() && $this->isInDB() && !$this->isArchived()) {
+                $elementalArea = $this->ElementalArea();
+
+                $elementalAreaNew = $elementalArea->duplicate();
+                $this->ElementalAreaID = $elementalAreaNew->ID;
+            }
+        }
+
+        return;
+    }
 }

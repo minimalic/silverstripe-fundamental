@@ -5,6 +5,7 @@ name: fundamental
 minimalic\Fundamental\Pages\ModularPage:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
+    - minimalic\Fundamental\Extensions\ModularPageFluentExtension
 
 DNADesign\Elemental\Forms\EditFormFactory:
   html_field_rows: 20
