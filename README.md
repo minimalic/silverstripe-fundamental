@@ -45,6 +45,7 @@ composer require colymba/gridfield-bulk-editing-tools
 - Hero Split Block (`ModuleHeroSplit`) - Displays a hero split with image and text side-by-side. Allows switching the order
 - Slideshow (`ModuleSlideshow`) - Image slider/carousel (Bootstrap compatible)
 - Gallery (`ModuleGallery`) - Image thumbnails as a grid
+- Teaser (`ModuleTeaser`) - Block with teaser items (with icon and buttons)
 
 
 ## Customization
