@@ -1,6 +1,12 @@
 # Change Log
 
 
+## [2.4.0](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.4.0) (2024-10-20)
+
+### Features:
+* New Teaser module for displaying multiple page teasers with icon and buttons
+
+
 ## [2.3.1](https://github.com/minimalic/silverstripe-fundamental/releases/tag/2.3.1) (2024-06-12)
 
 ### Fixes:
