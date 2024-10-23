@@ -106,6 +106,20 @@ en:
     db_SlideCrossfade: 'Slide crossfade'
     db_Width: Width
     has_many_Slides: Slides
+  minimalic\Fundamental\Modules\ModuleTeaser:
+    FullWidth: 'Display at Full Page Width'
+    Items: 'Teaser Blocks'
+    PLURALNAME: 'Teaser Blocks'
+    PLURALS:
+      one: 'A Teaser Block'
+      other: '{count} Teaser Blocks'
+    SINGULARNAME: 'Teaser Block'
+    ShowItemGaps: 'Display a gap between items'
+    Summary: 'Displays teaser item with icon/image and buttons.'
+    Type: Teaser
+    db_FullWidth: 'Full width'
+    db_ShowItemGaps: 'Show item gaps'
+    has_many_Items: Items
   minimalic\Fundamental\Objects\ObjectGalleryImage:
     Enabled: 'Enable Image'
     PLURALNAME: Images
@@ -133,6 +147,24 @@ en:
     has_many_Links: Links
     has_one_Image: Image
     has_one_ModuleSlideshow: 'Module slideshow'
+  minimalic\Fundamental\Objects\ObjectTeaserItem:
+    Content: 'Text content'
+    Enabled: 'Enable Item'
+    Links: Links
+    PLURALNAME: 'Teaser Items'
+    PLURALS:
+      one: 'A Teaser Item'
+      other: '{count} Teaser Items'
+    SINGULARNAME: 'Teaser Item'
+    Title: Title
+    db_Content: Content
+    db_Enabled: Enabled
+    db_Sort: Sort
+    db_Title: Title
+    has_many_Links: Links
+    has_one_Icon: Icon
+    has_one_Image: Image
+    has_one_ModuleTeaser: 'Module teaser'
   minimalic\Fundamental\Pages\ModularPage:
     DESCRIPTION: 'A page with modular elements.'
     PLURALNAME: 'Modular Pages'

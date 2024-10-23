@@ -106,6 +106,20 @@ de:
     db_SlideCrossfade: 'Überblendeffekt'
     db_Width: 'Breite'
     has_many_Slides: 'Folien'
+  minimalic\Fundamental\Modules\ModuleTeaser:
+    FullWidth: 'In voller Seitenbreite anzeigen'
+    Items: 'Teaser-Blöcke'
+    PLURALNAME: 'Teaser-Blöcke'
+    PLURALS:
+      one: 'Ein Teaser-Block'
+      other: '{count} Teaser-Blöcke'
+    SINGULARNAME: 'Teaser-Block'
+    ShowItemGaps: 'Abstand zwischen den Elementen anzeigen'
+    Summary: 'Zeigt Teaserelemente mit Symbol/Bild und Schaltflächen an.'
+    Type: 'Teaser'
+    db_FullWidth: 'Volle Seitenbreite'
+    db_ShowItemGaps: 'Abstände zwischen Elementen'
+    has_many_Items: 'Elemente'
   minimalic\Fundamental\Objects\ObjectGalleryImage:
     Enabled: 'Bild aktivieren'
     PLURALNAME: 'Bilder'
@@ -133,6 +147,24 @@ de:
     has_many_Links: Links
     has_one_Image: 'Bild'
     has_one_ModuleSlideshow: 'Slideshow Modul'
+  minimalic\Fundamental\Objects\ObjectTeaserItem:
+    Content: 'Textinhalt'
+    Enabled: 'Element aktivieren'
+    Links: 'Links'
+    PLURALNAME: 'Teaser-Elemente'
+    PLURALS:
+      one: 'Ein Teaser-Element'
+      other: '{count} Teaser-Elemente'
+    SINGULARNAME: 'Teaser-Element'
+    Title: 'Titel'
+    db_Content: 'Inhalt'
+    db_Enabled: 'Aktiviert'
+    db_Sort: 'Sortieren'
+    db_Title: 'Titel'
+    has_many_Links: 'Links'
+    has_one_Icon: 'Symbol'
+    has_one_Image: 'Bild'
+    has_one_ModuleTeaser: 'Modul Teaser'
   minimalic\Fundamental\Pages\ModularPage:
     DESCRIPTION: 'Eine Seite mit modularen Elementen.'
     PLURALNAME: 'Modulare Seiten'

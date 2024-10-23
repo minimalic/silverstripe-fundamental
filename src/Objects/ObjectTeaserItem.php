@@ -113,9 +113,9 @@ class ObjectTeaserItem extends DataObject
             }
         }
 
-        $fieldTitle = TextField::create('Title', 'Title');
+        $fieldTitle = TextField::create('Title', _t(__CLASS__ . '.Title', 'Title'));
 
-        $fieldContent = HTMLEditorField::create('Content', 'Text content');
+        $fieldContent = HTMLEditorField::create('Content', _t(__CLASS__ . '.Content', 'Text content'));
         $fieldContent->setRows(10);
 
         $fieldLinks = MultiLinkField::create('Links', _t(__CLASS__ . '.Links', 'Links'));

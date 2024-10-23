@@ -86,7 +86,7 @@ class ModuleTeaser extends BaseElement
         $itemsGridFieldConfig = GridFieldConfig_RecordEditor::create();
         $itemsGridFieldConfig->addComponent(GridFieldOrderableRows::create());
         $itemsGridFieldConfig->removeComponentsByType([GridFieldPageCount::class, GridFieldToolbarHeader::class, GridFieldFilterHeader::class]);
-        $itemsGridField = GridField::create('Items', 'Teaser Blocks', $this->Items());
+        $itemsGridField = GridField::create('Items', _t(__CLASS__ . '.Items', 'Teaser Blocks'), $this->Items());
         $itemsGridField->setConfig($itemsGridFieldConfig);
 
         $fields->addFieldsToTab('Root.Main', [
